@@ -34,7 +34,7 @@
 
 1. **Download:** Get the latest EFI from [Releases](../../releases)
 2. **Generate SMBIOS:** Use [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS) with `MacBookPro15,2`
-3. **Configure BIOS:** Follow settings in [BIOS Settings](#BIOS Settings) section
+3. **Configure BIOS:** Follow settings in [BIOS Settings](#bios-settings) section
 4. **Install:** Copy EFI to your USB/Drive and boot
 5. **Post-Install:** Install [YogaSMC](https://github.com/zhen-zen/YogaSMC) and setup [Undervolting](#Undervolting)
 
