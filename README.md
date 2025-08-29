@@ -84,7 +84,7 @@
 | Security > Virtualization > Intel (R) Virtualization Technology | Enabled |
 | Security > Virtualization > Intel (R) VT-d Feature | Enabled |
 | Security > I/O Port Access > Fingerprint Reader | Disabled |
-| Security > Secure Boot Configuration > Secure Boot > Disabled |
+| Security > Secure Boot Configuration > Secure Boot | Disabled |
 | Security > Intel (R) SGX > Intel (R) SGX Control | Software Controlled |
 | Security > Device Guard > Device Guard | Disabled |
 | Boot > UEFI/Legacy Boot | Both |
