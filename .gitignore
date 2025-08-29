@@ -1,0 +1,88 @@
+# ====================
+# Hackintosh .gitignore
+# ====================
+
+# macOS System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+.TemporaryItems
+.fseventsd
+.VolumeIcon.icns
+
+# Personal SMBIOS Data (KEEP PRIVATE!)
+# Never commit your real serial numbers/UUIDs
+*serial*.txt
+*uuid*.txt
+SMBIOS-*.plist
+config-personal.plist
+my-smbios.plist
+
+# Backup Files
+*.backup
+*.bak
+*.old
+*.orig
+config.plist.backup
+config.plist.bak
+
+# Log Files
+*.log
+*.txt
+debug.log
+boot.log
+opencore-*.txt
+oc-*.log
+
+# OpenCore Debug Files
+DEBUG/
+LOGS/
+.opencore_debug
+SysReport/
+
+# Temporary Files
+*.tmp
+*.temp
+.cache/
+temp/
+
+# IDE/Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Compressed Files (optional - if you don't want to track)
+*.zip
+*.rar
+*.7z
+*.tar.gz
+
+# Personal Notes/Docs (optional)
+notes.md
+personal-*.md
+TODO.txt
+
+# Kext Development (if applicable)
+*.dSYM/
+build/
+DerivedData/
+
+# EFI Backup Folders (optional)
+EFI-Backup*/
+EFI-Old*/
+OLD-EFI/
+
+# ====================
+# Keep These Files:
+# ====================
+# !EFI/ (your main EFI folder)
+# !Screenshots/ (your screenshots)
+# !README.md
+# !LICENSE
+# !config.plist (with placeholder SMBIOS)
