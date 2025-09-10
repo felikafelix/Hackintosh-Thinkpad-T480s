@@ -183,8 +183,7 @@
 
 - ### Use Yoga SMC App
     - To Get all the Fn keys to work, use the <a href="https://github.com/zhen-zen/YogaSMC">YogaSMC app</a>
-    - There's 2 option, YogaSMCNC or YogaSMCPane, the easiest is YOGASMCNC, but if you want more customized, use YogaSMCPane (must compile first)
-    - YogaSMC App also can help to manage the fan
+    - YogaSMC App also can help to manage the fan, led light, etc
 
 - ### Other Tools you might need
     - <a href="https://github.com/corpnewt/ProperTree">ProperTree</a>
