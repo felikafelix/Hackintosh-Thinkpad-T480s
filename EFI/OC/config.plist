@@ -8,14 +8,6 @@
 		<array>
 			<dict>
 				<key>Comment</key>
-				<string>Inject F12 handler (_Q1F)</string>
-				<key>Enabled</key>
-				<true/>
-				<key>Path</key>
-				<string>SSDT-F12MAP.aml</string>
-			</dict>
-			<dict>
-				<key>Comment</key>
 				<string>Detect Darwin for other patches</string>
 				<key>Enabled</key>
 				<true/>
@@ -24,11 +16,11 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Initialize system variables</string>
+				<string>Inject F12 handler (_Q1F)</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
-				<string>SSDT-INIT.aml</string>
+				<string>SSDT-F12MAP.aml</string>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -69,14 +61,6 @@
 				<true/>
 				<key>Path</key>
 				<string>SSDT-HWAC.aml</string>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>System Power Management</string>
-				<key>Enabled</key>
-				<false/>
-				<key>Path</key>
-				<string>SSDT-PM.aml</string>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -263,76 +247,64 @@
 				<data>RFNEVA==</data>
 			</dict>
 			<dict>
+				<key>Base</key>
+				<string></string>
+				<key>BaseSkip</key>
+				<integer>0</integer>
 				<key>Comment</key>
 				<string>Rename _Q13 to XQ13 (Brightness Down)</string>
+				<key>Count</key>
+				<integer>0</integer>
+				<key>Enabled</key>
+				<false/>
 				<key>Find</key>
 				<data>X1ExMw==</data>
+				<key>Limit</key>
+				<integer>0</integer>
+				<key>Mask</key>
+				<data></data>
+				<key>OemTableId</key>
+				<data></data>
 				<key>Replace</key>
 				<data>WFExMw==</data>
+				<key>ReplaceMask</key>
+				<data></data>
+				<key>Skip</key>
+				<integer>0</integer>
+				<key>TableLength</key>
+				<integer>0</integer>
+				<key>TableSignature</key>
+				<data></data>
 			</dict>
 			<dict>
+				<key>Base</key>
+				<string></string>
+				<key>BaseSkip</key>
+				<integer>0</integer>
 				<key>Comment</key>
 				<string>Rename _Q16 to XQ16 (Brightness Up)</string>
+				<key>Count</key>
+				<integer>0</integer>
+				<key>Enabled</key>
+				<false/>
 				<key>Find</key>
 				<data>X1ExNg==</data>
+				<key>Limit</key>
+				<integer>0</integer>
+				<key>Mask</key>
+				<data></data>
+				<key>OemTableId</key>
+				<data></data>
 				<key>Replace</key>
 				<data>WFExNg==</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Rename _Q65 to XQ65 (Mic Mute)</string>
-				<key>Find</key>
-				<data>X1E2NQ==</data>
-				<key>Replace</key>
-				<data>WFExNQ==</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Rename _Q66 to XQ66 (Display Options)</string>
-				<key>Find</key>
-				<data>X1E2Ng==</data>
-				<key>Replace</key>
-				<data>WFExNg==</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Rename _Q19 to XQ19 (Wi-Fi Toggle)</string>
-				<key>Find</key>
-				<data>X1ExOQ==</data>
-				<key>Replace</key>
-				<data>WFExOQ==</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Rename _Q1C to XQ1C (Settings)</string>
-				<key>Find</key>
-				<data>X1ExQw==</data>
-				<key>Replace</key>
-				<data>WFExQw==</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Rename _Q1D to XQ1D (Bluetooth Toggle)</string>
-				<key>Find</key>
-				<data>X1ExRA==</data>
-				<key>Replace</key>
-				<data>WFExRA==</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Rename _Q64 to XQ64 (Keyboard Toggle)</string>
-				<key>Find</key>
-				<data>X1E2NA==</data>
-				<key>Replace</key>
-				<data>WFExNA==</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Rename _Q74 to XQ74 (Special Key ★)</string>
-				<key>Find</key>
-				<data>X1E3NA==</data>
-				<key>Replace</key>
-				<data>WFExNA==</data>
+				<key>ReplaceMask</key>
+				<data></data>
+				<key>Skip</key>
+				<integer>0</integer>
+				<key>TableLength</key>
+				<integer>0</integer>
+				<key>TableSignature</key>
+				<data></data>
 			</dict>
 			<dict>
 				<key>Base</key>
@@ -825,6 +797,8 @@
 			<false/>
 			<key>AvoidRuntimeDefrag</key>
 			<true/>
+			<key>ClearTaskSwitchBit</key>
+			<false/>
 			<key>DevirtualiseMmio</key>
 			<false/>
 			<key>DisableSingleUser</key>
@@ -837,6 +811,8 @@
 			<true/>
 			<key>EnableWriteUnprotector</key>
 			<true/>
+			<key>FixupAppleEfiImages</key>
+			<false/>
 			<key>ForceBooterSignature</key>
 			<false/>
 			<key>ForceExitBootServices</key>
@@ -867,6 +843,27 @@
 	<dict>
 		<key>Add</key>
 		<dict>
+			<key>PciRoot(0x0)/Pci(0x1C,0x6)/Pci(0x0,0x0)</key>
+			<dict>
+				<key>built-in</key>
+				<data>AQ==</data>
+				<key>model</key>
+				<string>Intel I219-V Ethernet Connection</string>
+			</dict>
+			<key>PciRoot(0x0)/Pci(0x1F,0x0)</key>
+			<dict>
+				<key>compatible</key>
+				<string>pci8086,9d48</string>
+				<key>device-id</key>
+				<data>SJ0AAA==</data>
+			</dict>
+			<key>PciRoot(0x0)/Pci(0x1F,0x0)/VoodooPS2Mouse</key>
+			<dict>
+				<key>HIDPointerAccelerationType</key>
+				<string>HIDTrackpadAcceleration</string>
+				<key>HIDScrollAccelerationType</key>
+				<string>HIDTrackpadScrollAcceleration</string>
+			</dict>
 			<key>PciRoot(0x0)/Pci(0x1F,0x3)</key>
 			<dict>
 				<key>AAPL,slot-name</key>
@@ -878,12 +875,21 @@
 				<key>model</key>
 				<string>Sunrise Point-LP HD Audio</string>
 			</dict>
+			<key>PciRoot(0x0)/Pci(0x1F,0x4)</key>
+			<dict>
+				<key>AAPL,slot-name</key>
+				<string>Internal@0,31,4</string>
+				<key>device_type</key>
+				<string>SMBus</string>
+				<key>model</key>
+				<string>Sunrise Point-LP SMBus</string>
+			</dict>
 			<key>PciRoot(0x0)/Pci(0x2,0x0)</key>
 			<dict>
-				<key>AAPL,ig-platform-id</key>
-				<data>AAAWWQ==</data>
 				<key>AAPL,GfxYTile</key>
 				<data>AQAAAA==</data>
+				<key>AAPL,ig-platform-id</key>
+				<data>AAAbWQ==</data>
 				<key>AAPL,slot-name</key>
 				<string>Internal@0,2,0</string>
 				<key>AAPL00,override-no-connect</key>
@@ -892,12 +898,22 @@
 				<data>FlkAAA==</data>
 				<key>device_type</key>
 				<string>VGA compatible controller</string>
+				<key>enable-hdmi20</key>
+				<data>AQAAAA==</data>
+				<key>enable-metal</key>
+				<data>AQAAAA==</data>
+				<key>force-online</key>
+				<data>AQAAAA==</data>
+				<key>framebuffer-cursormem</key>
+				<data>AACQAA==</data>
+				<key>framebuffer-fbmem</key>
+				<data>AACQAA==</data>
 				<key>framebuffer-patch-enable</key>
 				<data>AQAAAA==</data>
 				<key>framebuffer-stolenmem</key>
-				<data>AAAwAQ==</data>
-				<key>framebuffer-fbmem</key>
-				<data>AACQAA==</data>
+				<data>AABgAQ==</data>
+				<key>framebuffer-unifiedmem</key>
+				<data>AAAAgA==</data>
 				<key>model</key>
 				<string>Intel UHD Graphics 620</string>
 			</dict>
@@ -915,7 +931,7 @@
 				<key>BundlePath</key>
 				<string>Lilu.kext</string>
 				<key>Comment</key>
-				<string>V1.6.7</string>
+				<string>V1.7.1 | Foundation</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -933,7 +949,7 @@
 				<key>BundlePath</key>
 				<string>VirtualSMC.kext</string>
 				<key>Comment</key>
-				<string>V1.3.2</string>
+				<string>V1.3.7 | Apple SMC Emulation for Booting</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -951,7 +967,7 @@
 				<key>BundlePath</key>
 				<string>SMCBatteryManager.kext</string>
 				<key>Comment</key>
-				<string>V1.3.2</string>
+				<string>V1.3.7 | Monitoring and Battery Management</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -969,7 +985,7 @@
 				<key>BundlePath</key>
 				<string>SMCSuperIO.kext</string>
 				<key>Comment</key>
-				<string>V1.3.2</string>
+				<string>V1.3.7 | Monitoring and Controlling Fan Speed</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -987,7 +1003,7 @@
 				<key>BundlePath</key>
 				<string>SMCProcessor.kext</string>
 				<key>Comment</key>
-				<string>V1.3.2</string>
+				<string>V1.3.7 | Monitoring CPU Status</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -1005,7 +1021,7 @@
 				<key>BundlePath</key>
 				<string>CPUFriend.kext</string>
 				<key>Comment</key>
-				<string>V1.2.7</string>
+				<string>V1.3.0 | Optimation for CPU Power for Performance and Battery Efficiancy</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -1023,7 +1039,7 @@
 				<key>BundlePath</key>
 				<string>CPUFriendDataProvider.kext</string>
 				<key>Comment</key>
-				<string>V1.0.1</string>
+				<string>V1.0.1 | Data for CPUFriend</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -1041,7 +1057,7 @@
 				<key>BundlePath</key>
 				<string>WhateverGreen.kext</string>
 				<key>Comment</key>
-				<string>V1.6.6</string>
+				<string>V1.7.0 | Fix Graphic Problem and Display Compatibility</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -1059,7 +1075,7 @@
 				<key>BundlePath</key>
 				<string>AppleALC.kext</string>
 				<key>Comment</key>
-				<string>V1.8.5</string>
+				<string>V1.9.5 | Enable Audio</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -1077,7 +1093,7 @@
 				<key>BundlePath</key>
 				<string>NVMeFix.kext</string>
 				<key>Comment</key>
-				<string>V1.1.1</string>
+				<string>V1.1.3 | Fix SSD NVMe Problem and Power Management</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -1095,7 +1111,7 @@
 				<key>BundlePath</key>
 				<string>VoltageShift.kext</string>
 				<key>Comment</key>
-				<string>V1.24 | Undervolt</string>
+				<string>V1.24 | Undervolting</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -1111,27 +1127,9 @@
 				<key>Arch</key>
 				<string>Any</string>
 				<key>BundlePath</key>
-				<string>VoodooPS2Controller.kext/Contents/PlugIns/VoodooInput.kext</string>
-				<key>Comment</key>
-				<string>V1.1.4</string>
-				<key>Enabled</key>
-				<false/>
-				<key>ExecutablePath</key>
-				<string>Contents/MacOS/VoodooInput</string>
-				<key>MaxKernel</key>
-				<string></string>
-				<key>MinKernel</key>
-				<string></string>
-				<key>PlistPath</key>
-				<string>Contents/Info.plist</string>
-			</dict>
-			<dict>
-				<key>Arch</key>
-				<string>Any</string>
-				<key>BundlePath</key>
 				<string>VoodooI2C.kext/Contents/PlugIns/VoodooInput.kext</string>
 				<key>Comment</key>
-				<string>V1.1.4</string>
+				<string>V1.1.6 | Trackpad Driver and Other Input Method</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -1149,7 +1147,7 @@
 				<key>BundlePath</key>
 				<string>VoodooI2C.kext/Contents/PlugIns/VoodooGPIO.kext</string>
 				<key>Comment</key>
-				<string>V1.1</string>
+				<string>V1.1 | Support GPIO Protocol for Trackpad</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -1167,7 +1165,7 @@
 				<key>BundlePath</key>
 				<string>VoodooI2C.kext/Contents/PlugIns/VoodooI2CServices.kext</string>
 				<key>Comment</key>
-				<string>V1</string>
+				<string>V1 | Support for Trackpad I2C</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -1185,7 +1183,7 @@
 				<key>BundlePath</key>
 				<string>VoodooI2C.kext</string>
 				<key>Comment</key>
-				<string>V2.8 | TouchScreen</string>
+				<string>V2.9.1 | Main Driver for Trackpad I2C (Touchscreen)</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -1203,7 +1201,7 @@
 				<key>BundlePath</key>
 				<string>VoodooI2CHID.kext</string>
 				<key>Comment</key>
-				<string>V1 | TouchScreen</string>
+				<string>V1 | Support for HID Devices (Including Touchscreen)</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -1221,7 +1219,7 @@
 				<key>BundlePath</key>
 				<string>VoodooPS2Controller.kext</string>
 				<key>Comment</key>
-				<string>V2.3.5</string>
+				<string>V2.3.7 | Keyboard PS/2 Driver</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -1239,7 +1237,7 @@
 				<key>BundlePath</key>
 				<string>VoodooPS2Controller.kext/Contents/PlugIns/VoodooPS2Keyboard.kext</string>
 				<key>Comment</key>
-				<string>V2.3.5</string>
+				<string>V2.3.7 | Special for Keyboard PS/2</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -1257,7 +1255,7 @@
 				<key>BundlePath</key>
 				<string>VoodooPS2Controller.kext/Contents/PlugIns/VoodooPS2Trackpad.kext</string>
 				<key>Comment</key>
-				<string>V2.3.5</string>
+				<string>V2.3.7 | Support for PS/2 Trackpad</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -1273,27 +1271,9 @@
 				<key>Arch</key>
 				<string>Any</string>
 				<key>BundlePath</key>
-				<string>VoodooSMBus.kext</string>
-				<key>Comment</key>
-				<string>V3.0</string>
-				<key>Enabled</key>
-				<true/>
-				<key>ExecutablePath</key>
-				<string>Contents/MacOS/VoodooSMBus</string>
-				<key>MaxKernel</key>
-				<string></string>
-				<key>MinKernel</key>
-				<string></string>
-				<key>PlistPath</key>
-				<string>Contents/Info.plist</string>
-			</dict>
-			<dict>
-				<key>Arch</key>
-				<string>Any</string>
-				<key>BundlePath</key>
 				<string>VoodooPS2Controller.kext/Contents/PlugIns/VoodooPS2Mouse.kext</string>
 				<key>Comment</key>
-				<string>VoodooPS2Mouse.kext</string>
+				<string>V2.3.7 | Support for PS/2 Mouse (Including TrackPoint)</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -1311,7 +1291,7 @@
 				<key>BundlePath</key>
 				<string>IntelMausi.kext</string>
 				<key>Comment</key>
-				<string>V1.0.7</string>
+				<string>V1.0.8 | Driver for Intel Ethernet</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -1329,7 +1309,7 @@
 				<key>BundlePath</key>
 				<string>AirportItlwm.kext</string>
 				<key>Comment</key>
-				<string>V2.2.0 | for Ventura</string>
+				<string>V2.3.0 | Enable WiFi on Intel Card</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -1347,7 +1327,7 @@
 				<key>BundlePath</key>
 				<string>IntelBluetoothFirmware.kext</string>
 				<key>Comment</key>
-				<string>V2.3.0</string>
+				<string>V2.4.0 | Enable Bluetooth for Intel Chipset</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -1363,27 +1343,9 @@
 				<key>Arch</key>
 				<string>Any</string>
 				<key>BundlePath</key>
-				<string>IntelBTPatcher.kext</string>
-				<key>Comment</key>
-				<string>V2.3.0</string>
-				<key>Enabled</key>
-				<false/>
-				<key>ExecutablePath</key>
-				<string>Contents/MacOS/IntelBTPatcher</string>
-				<key>MaxKernel</key>
-				<string></string>
-				<key>MinKernel</key>
-				<string></string>
-				<key>PlistPath</key>
-				<string>Contents/Info.plist</string>
-			</dict>
-			<dict>
-				<key>Arch</key>
-				<string>Any</string>
-				<key>BundlePath</key>
 				<string>BlueToolFixup.kext</string>
 				<key>Comment</key>
-				<string>V2.6.8 | Bluetooth for Monterey and beyond</string>
+				<string>V2.7.1 | Fix Bluetooth Problem on macOS Monterey and newer</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -1401,7 +1363,7 @@
 				<key>BundlePath</key>
 				<string>USBMap.kext</string>
 				<key>Comment</key>
-				<string>USBMap.kext</string>
+				<string>V1.0 | Mapping All USB Ports</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -1419,7 +1381,7 @@
 				<key>BundlePath</key>
 				<string>YogaSMC.kext</string>
 				<key>Comment</key>
-				<string>YogaSMC.kext</string>
+				<string>V1.5.3 | Special Features for ThinkPad/Yoga (Fan Mode, Hotkeys, etc)</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -1437,7 +1399,7 @@
 				<key>BundlePath</key>
 				<string>BrightnessKeys.kext</string>
 				<key>Comment</key>
-				<string>BrightnessKeys.kext</string>
+				<string>V1.0.3 | Enable Brightness Control</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -1651,7 +1613,7 @@
 			<key>ScanPolicy</key>
 			<integer>0</integer>
 			<key>SecureBootModel</key>
-			<string>j160</string>
+			<string>x86legacy</string>
 			<key>Vault</key>
 			<string>Optional</string>
 		</dict>
@@ -1744,7 +1706,7 @@
 				<key>bluetoothInternalControllerInfo</key>
 				<data>AAAAAAAAAAAAAAAAAAA=</data>
 				<key>boot-args</key>
-				<string>darkwake=0 alcid=11 unfairgva=4 dither=6</string>
+				<string>darkwake=0 unfairgva=4 dither=6 igfxonln=1 -wegnoegpu</string>
 				<key>csr-active-config</key>
 				<data>AAAAAA==</data>
 				<key>prev-lang:kbd</key>
@@ -2151,6 +2113,8 @@
 				<string>RuntimeCode</string>
 			</dict>
 		</array>
+		<key>Unload</key>
+		<array/>
 	</dict>
 </dict>
 </plist>

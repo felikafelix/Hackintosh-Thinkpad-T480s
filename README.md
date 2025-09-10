@@ -2,7 +2,7 @@
 
 <p align="center">
 <img src="https://img.shields.io/badge/macOS-Ventura%2013.7.8-blue?style=for-the-badge&logo=apple">
-<img src="https://img.shields.io/badge/OpenCore-0.9.5-green?style=for-the-badge&logo=hackthebox">
+<img src="https://img.shields.io/badge/OpenCore-1.0.5-green?style=for-the-badge&logo=hackthebox">
 <img src="https://img.shields.io/badge/Status-Stable-brightgreen?style=for-the-badge">
 <img src="https://img.shields.io/github/downloads/felikafelix/Hackintosh-Thinkpad-T480s/total?style=for-the-badge">
 </p>
@@ -25,7 +25,7 @@
 
 - ✅ Please re-generate SMBIOS and insert it into config.plist before first boot.
 - ✅ Apply undervolting using VoltageShift for better thermals and battery life (see notes section).
-- ✅ Install YogaSMC app to enable all Fn keys functionality.
+- ✅ Install YogaSMC app to enable all Fn keys functionality and Fan Control.
 - ✅ Always keep a backup of your EFI before making changes (recommended: test changes on a USB).
 - ✅ If boot fails or experiencing black screen on boot, try disabling EDID injection or set your own EDID in DeviceProperties.
 
@@ -37,6 +37,7 @@
 3. **Configure BIOS:** Follow settings in [BIOS Settings](#-bios-settings) section
 4. **Install:** Copy EFI to your USB/Drive and boot
 5. **Post-Install:** Install [YogaSMC](https://github.com/zhen-zen/YogaSMC) and setup [Undervolting](#Undervolting)
+6. **Optional**: Generate your own [CPUFriendDataProvider](https://github.com/corpnewt/CPUFriendFriend) to adjust your need (prioritize power, balanced power, balanced performance, prioritize performance)
 
 **Need help?** Open an [Issue](../../issues)
 
@@ -102,7 +103,7 @@
 - CPU Power Management / Performance
 - USB A & USB C (including power delivery)
 - Output HDMI (video & audio)
-- Audio (Internal Speaker & Jack Headphone 3.5mm)
+- Audio (Internal Speaker, Interlan Mic & Jack Headphone 3.5mm)
 - Internal Microphone
 - WiFi 5GHz & 2.4GHz
 - Bluetooth 
@@ -110,7 +111,6 @@
 - Touchscreen (Gesture same as trackpad)
 - Trackpad with Multi-Gesture & Trackpoint
 - Keyboard & Backlight
-- Internal Audio + Mic
 - Internal Webcam
 - Sleep / Wake
 - Power Management (undervolt)
@@ -135,7 +135,7 @@
 
 <details><summary> ❌ What's not working </summary>
   
-- Safari DRM & Apple TV+ (Blank / Audio Only, need eGPU or spoof SMBios to iMacPro1,1 / MacPro1,1. Workaround: Use browsers like chrome or firefox which use software-based DRM => widevine)
+- Safari DRM & Apple TV+ (Blank / Audio Only, need dGPU or spoof SMBios to iMacPro1,1 / MacPro1,1. Workaround: Use browsers like chrome or firefox which use software-based DRM => widevine)
 - Fingerprint Reader
 - Airdrop ( Use DW / BCM Network Card to get it work )
   
@@ -143,7 +143,7 @@
 
 <details><summary>🔍 Not tested </summary>
   
-- Thunderbolt 3 (I don't have TB3 device, but the power delivery is still working)
+- Thunderbolt 3 (I don't have TB3 devices, but the power delivery and type c still working)
 - WWAN (i don't have wwan card)
 - Card Reader (i don't have memory card)
   
@@ -153,10 +153,10 @@
 
 - ### Undervolting
     - For thermal performance and better battery life, you can do undervolt to the CPU and GPU. i'm using <a href="https://github.com/sicreative/VoltageShift">Voltageshift</a> cli tool on macOS (the required kext is already included in this EFI).
-    - The most stable offset i set is -125 (CPU), -130 (GPU), -50 (CPU Cache), you can set your own by running " voltageshift offset \<cpu\> \<gpu\> \<cpu cache\>
+    - The most stable offset i set is -135 (CPU), -140 (GPU), -40 (CPU Cache), you can set your own by running " voltageshift offset \<cpu\> \<gpu\> \<cpu cache\>
     - Example : 
     ``
-    voltageshift offset -125 -130 -50 
+    voltageshift offset -135 -140 -40 
     ``
     - Remember to set the offset carefully
     - After setting up the undervolting, always do the stress test to make sure there's no bug, screen flickering, or other issues. if no issue occurs, you can try to apply more aggresive offset.
