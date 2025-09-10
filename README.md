@@ -59,7 +59,7 @@
 | Camera | 720p HD Camera|
 | Trackpad | Synaptics Precision Trackpad (via Voodoo PS2/SMBus) |
 | macOS | 13.7.8 Ventura |
-| OpenCore Version | 0.9.5 |
+| OpenCore Version | 1.0.5 |
 
 ## 🪛 BIOS Settings
 
