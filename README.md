@@ -12,7 +12,7 @@
 
 
 ## Description
-<p align="justify">This EFI is created and tested for Lenovo Thinkpad T480s with Intel UHD 620. The configuration is optimized for smooth user experience, stable enough for daily usage, and hardware acceleration support.</p>
+<p align="justify">This EFI is created and tested specially for my Lenovo Thinkpad T480s with Intel UHD 620. The configuration is optimized for smooth user experience, stable enough for daily usage, and hardware acceleration support.</p>
 
 <p align="center">
 <img src="Screenshots/About This Mac.png">
@@ -149,6 +149,14 @@
   
 </details>
 
+<details><summary>Known Issue</summary>
+
+- Color Banding
+    - T480 Stock Panel color accuracy is not good.
+    - There's workaround says need to spoof to skylake platform-id, but will that will not work with ventura (only monterey and older)
+</details>
+
+
 ## Notes
 
 - ### Undervolting
@@ -259,7 +267,9 @@
     <img src="Screenshots/Apple Music.png">
 </p>
 
-- ### Intel Power Gadget (Resource while Browsing)
+- ### Intel Power Gadget
+    - Resource on Idle
+    - Some light background apps running
 <p align="center">
     <img src="Screenshots/Intel Power Gadget.png">
 </p>
