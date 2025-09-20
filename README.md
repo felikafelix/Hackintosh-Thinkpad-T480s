@@ -24,7 +24,7 @@
 </a>
 </p>
 
-<p align="center">OpenCore EFI for Lenovo ThinkPad T480s (i5-8350U, Intel UHD 620)</p>
+<p align="center">OpenCore EFI for Lenovo ThinkPad T480s (i5-8350U, Intel UHD 620) with Touchscreen</p>
 
 ## 📄 Description
 <p align="justify">This EFI is created and tested specially for my Lenovo Thinkpad T480s with Intel UHD 620. The configuration is optimized for smooth user experience, stable enough for daily usage, and hardware acceleration support.</p>
