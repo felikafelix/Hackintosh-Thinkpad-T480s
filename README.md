@@ -34,7 +34,8 @@
 </p>
 
 ## ⚠️ Attention
-<p align="justify">I just upgraded my hacks to Sequoia, so v3 will be my last update for Ventura. <br>In case you want to upgrade from ventura to sequoia, im using the v3 release to upgrade from Ventura to Sequoia using <b>System Settings > General > Software Update</b>.</p>
+<p align="justify">I just upgraded my hacks to Sequoia, so v3 will be my last update for Ventura. <br></br>
+In case you want to upgrade from ventura to sequoia, im using the v3 release to upgrade from Ventura to Sequoia using <b>System Settings > General > Software Update</b>.</p>
 The Adjustment i do on my EFI before upgrade
 
 - Disable voltageshift script and its kext
