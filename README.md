@@ -1,43 +1,62 @@
 # <div align="center"> Hackintosh-Thinkpad-T480s </div>
 
 <p align="center">
-<img src="https://img.shields.io/badge/macOS-Ventura%2013.7.8-blue?style=for-the-badge&logo=apple">
-<img src="https://img.shields.io/badge/OpenCore-1.0.5-green?style=for-the-badge&logo=hackthebox">
+<!-- OpenCore 1.0.5 -->
+<img src="https://img.shields.io/badge/OpenCore-1.0.5-green?style=for-the-badge&logo=hackthebox" href="https://github.com/acidanthera/OpenCorePkg/releases/tag/1.0.5">
+<!-- Status Stable -->
 <img src="https://img.shields.io/badge/Status-Stable-brightgreen?style=for-the-badge">
-<img src="https://img.shields.io/github/downloads/felikafelix/Hackintosh-Thinkpad-T480s/total?style=for-the-badge">
+<!-- Downloads -->
+<img src="https://img.shields.io/github/downloads/felikafelix/Hackintosh-Thinkpad-T480s/total?style=for-the-badge" href="https://github.com/felikafelix/Hackintosh-Thinkpad-T480s/releases">
+</p>
+<p align="center">
+<!-- Ventura -->
+<img src="https://img.shields.io/badge/macOS-Ventura%2013.7.8-yellow?style=for-the-badge&logo=apple">
+<!-- Sequoia -->
+<img src="https://img.shields.io/badge/macOS-Sequoia%2015.7-blue?style=for-the-badge&logo=apple">
 </p>
 
 <p align="center">OpenCore EFI for Lenovo ThinkPad T480s (i5-8350U, Intel UHD 620)</p>
 
-
-
-## Description
+## 📄 Description
 <p align="justify">This EFI is created and tested specially for my Lenovo Thinkpad T480s with Intel UHD 620. The configuration is optimized for smooth user experience, stable enough for daily usage, and hardware acceleration support.</p>
 
 <p align="center">
-<img src="Screenshots/About This Mac.png">
+<img src="Sequoia/Assets/About This Mac.png">
 </p>
 
----
+## ⚠️ Attention
+<p align="justify">I just upgraded my hacks to Sequoia, so v3 will be my last update for Ventura. <br>In case you want to upgrade from ventura to sequoia, im using the v3 release to upgrade from Ventura to Sequoia using <b>System Settings > General > Software Update</b>.</p>
+The Adjustment i do on my EFI before upgrade
 
+- Disable voltageshift script and its kext
+- Cleaning the boot-args, add `-v` and `keepsyms=1`
+-  Misc > Boot >
+    - Show Picker = True
+    - Timeout = 10
+- Disable HiDPI
+- After succesfully upgraded to sequoia, you can change the EFI to my sequoia release, and re-enable any kext & system patch disabled before upgrading.
 
-## ‼️ Attention
+<p align="justify">if you still want to stay on Ventura, maybe consider changing smbios to 16,3. From what i test on my Sequoia, the power and performance management is better.</p>
+<br>
 
-- ✅ Please re-generate SMBIOS and insert it into config.plist before first boot.
-- ✅ Apply undervolting using VoltageShift for better thermals and battery life (see notes section).
-- ✅ Install YogaSMC app to enable all Fn keys functionality and Fan Control.
-- ✅ Always keep a backup of your EFI before making changes (recommended: test changes on a USB).
-- ✅ If boot fails or experiencing black screen on boot, try disabling EDID injection or set your own EDID in DeviceProperties.
 
 
 ## 🚀 Quick Start
 
+**IMPORTANT!!**
+> see [Ventura Notes](Ventura/Ventura.md)
+
+> see [Sequoia Notes](Sequoia/Sequoia.md)
+
 1. **Download:** Get the latest EFI from [Releases](../../releases)
-2. **Generate SMBIOS:** Use [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS) with `MacBookPro15,2`
+2. **Generate SMBIOS:** Use [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS) with `MacBookPro16,3`
 3. **Configure BIOS:** Follow settings in [BIOS Settings](#-bios-settings) section
 4. **Install:** Copy EFI to your USB/Drive and boot
-5. **Post-Install:** Install [YogaSMC](https://github.com/zhen-zen/YogaSMC) and setup [Undervolting](#Undervolting)
-6. **Optional**: Generate your own [CPUFriendDataProvider](https://github.com/corpnewt/CPUFriendFriend) to adjust your need (prioritize power, balanced power, balanced performance, prioritize performance)
+5. **Post-Install:** :
+    - Install [YogaSMC](https://github.com/zhen-zen/YogaSMC) and setup [Undervolting](#Undervolting)
+    - Generate your own [CPUFriendDataProvider](https://github.com/corpnewt/CPUFriendFriend) to adjust your need (prioritize power, balanced power, balanced performance, prioritize performance)
+    - Setup [HiDPI](https://github.com/xzhih/one-key-hidpi) for native scaling
+    - (Sequoia Only), if want to use airportltlwm on sequoia, patch using oclp method, see sequoia readme
 
 **Need help?** Open an [Issue](../../issues)
 
@@ -58,8 +77,6 @@
 | USB Controller | Sunrise Point-LP USB 3.0 xHCI |
 | Camera | 720p HD Camera|
 | Trackpad | Synaptics Precision Trackpad (via Voodoo PS2/SMBus) |
-| macOS | 13.7.8 Ventura |
-| OpenCore Version | 1.0.5 |
 
 ## 🪛 BIOS Settings
 
@@ -93,7 +110,7 @@
 | Boot > UEFI/Legacy Boot > CSM Support | Yes |
 
 
-## Status
+## 📊 Status
 
 <details><summary> ✅ What's working </summary>
   
@@ -127,37 +144,46 @@
     - F10 (Toggle Bluetooth)
     - F11 (Toggle Keyboard)
     - F12 (Toggle Launchpad)
-- Apple Services (iMessage, Facetime, App Store, Find My, Continuity, etc)
+- Apple Services (iMessage, Facetime, App Store, Find My, Airplay, etc)
 - Apple Music Lossless (Hi-Res Audio)
-  
+- Airdrop
+    - One Way > Send to iPhone Only
+- Continuity Handoff (Browser Acivity, Universal Clipboard, etc)
+- iPhone Camera (USB Cable)
+- Android USB Tethering
+    - on ventura, add [HoRNDIS](https://github.com/TomHeaven/HoRNDIS/releases) kext
+    - on sequoia, the kext is already included
 
 </details>
 
 <details><summary> ❌ What's not working </summary>
   
-- Safari DRM & Apple TV+ (Blank / Audio Only, need dGPU or spoof SMBios to iMacPro1,1 / MacPro1,1. Workaround: Use browsers like chrome or firefox which use software-based DRM => widevine)
+- Safari DRM & Apple TV+ (Blank & Audio Only, need dGPU or spoof SMBios to iMacPro1,1 / MacPro1,1. Workaround: Use browsers like chrome or firefox which use software-based DRM => widevine)
 - Fingerprint Reader
-- Airdrop ( Use DW / BCM Network Card to get it work )
+- Airdrop Receiver
+- iPhone Camera (Wireless)
   
 </details>
 
 <details><summary>🔍 Not tested </summary>
   
-- Thunderbolt 3 (I don't have TB3 devices, but the power delivery and type c still working)
-- WWAN (i don't have wwan card)
-- Card Reader (i don't have memory card)
+- Thunderbolt 3 (doesn't have TB3 devices to test)
+- Card Reader (doesn't have memory card to test)
   
 </details>
 
-<details><summary>Known Issue</summary>
+<details><summary>🐛 Known Issue</summary>
 
-- Color Banding
+- Colour Banding
+    <p align="justify">inaccurate color gradients, where smooth transitions are replaced by discernible bands of solid color. It is most noticeable in areas with subtle shade variations, such as skies, dark scenes, or UI gradients.</p>
+
     - T480 Stock Panel color accuracy is not good.
-    - There's workaround says need to spoof to skylake platform-id, but will that will not work with ventura (only monterey and older)
+    - Maybe issue with the color depth too.
+    - There's workaround says need to spoof to skylake platform-id, but that will not work with ventura (only monterey and older)
 </details>
 
 
-## Notes
+## 📌 Notes
 
 - ### Undervolting
     - For thermal performance and better battery life, you can do undervolt to the CPU and GPU. i'm using <a href="https://github.com/sicreative/VoltageShift">Voltageshift</a> cli tool on macOS (the required kext is already included in this EFI).
@@ -175,15 +201,20 @@
 
 - ### Generate SMBios
     - Download and use <a href="https://github.com/corpnewt/GenSMBIOS">GenSMBios</a>
-    - Choose Option ``3. Generate SMBios``
-    - For model, you can use ``MacBookPro15,2`` or ``MacBookPro14,1``
+    - Choose Option `3. Generate SMBios`
+    - For model, you can use `MacBookPro15,2` or `MacBookPro14,1`
     - Notes the output of GenSMBios (Serial, Board Serial / MLB, SmUUID, etc)
     - Edit the config.plist using <a href="https://github.com/corpnewt/ProperTree">ProperTree</a>
-    - Paste the Serial, MLB, SmUUID, etc, to the ``PlatformInfo > Generic``
+    - Paste the Serial, MLB, SmUUID, etc, to the `PlatformInfo > Generic`
 
 - ### Use Yoga SMC App
     - To Get all the Fn keys to work, use the <a href="https://github.com/zhen-zen/YogaSMC">YogaSMC app</a>
-    - YogaSMC App also can help to manage the fan, led light, etc
+    - YogaSMCNC Apps also can help to manage the fan, led light, etc
+
+- ### HiDPI
+    - Download and run the [HiDPI](https://github.com/xzhih/one-key-hidpi) script.
+    - Choose Option `(2) Enable HiDPI (With EDID)` > `(3) MacBook Pro` > `(1) 1920x1080 Display`. or chose another option as you need
+    - Reboot
 
 - ### Other Tools you might need
     - <a href="https://github.com/corpnewt/ProperTree">ProperTree</a>
@@ -193,124 +224,88 @@
     - <a href="https://www.python.org/downloads/macos/">Python3</a>
     - <a href="https://brew.sh/">Homebrew</a>
 
-## 📊 Performance
-
-*Benchmarks with -125/-130/-50 undervolt settings*
-<br>
-*Room temperature, charger connected*
-
-<details>
-    <summary>
-        Geekbench 6.4.0
-    </summary>
-
-| Test | Score |
-| ----: | :------: |
-| CPU (Single-Core)  | 901 |
-| CPU (Multi-Core) | 2925 |
-| GPU (Metal) | 5391 |
-| GPU (OpenCL) | 3877 |
-
-</details>
-<details>
-    <summary>
-        Unigine Heaven 4.0 Basic Edition
-    </summary>
-
-| Test | Score |
-| ----: | :-----: |
-| Preset | Basic (OpenGL) |
-| FPS | 18.7 |
-| Score | 470 |
-| Min. FPS | 7.2 |
-| Max FPS | 41.3 |
-
-</details>
-<details>
-    <summary>
-        Cinebench R23
-    </summary>
-
-| Test | Score |
-| ----: | :-----: |
-| CPU (Multi-Core) | 3312 |
-| CPU (Single-Core) | 674 |
-| MP Ratio | 4.91x |
-
-</details>
-
-## Screenshot
+## 📸 Screenshot
 
 - ### Desktop
 <p align="center">
-    <img src="Screenshots/Desktop.png">
+    <img src="Sequoia/Assets/Desktop.png">
 </p>
 
 - ### About This Mac
 <p align="center">
-    <img src="Screenshots/About This Mac.png">
+    <img src="Sequoia/Assets/About This Mac.png">
 </p>
 
 - ### System & Graphic Info (VDA Decoder Fully Supported)
 <p align="center">
-    <img src="Screenshots/System Graphic Info.png">
+    <img src="Sequoia/Assets/System Graphic Info.png">
 </p>
 
-- ### Display
+- ### Display (HiDPI)
 <p align="center">
-    <img src="Screenshots/Display.png">
+    <img src="Sequoia/Assets/Display.png">
 </p>
 
 - ### Apple Music Lossless Audio
 <p align="center">
-    <img src="Screenshots/Apple Music.png">
+    <img src="Sequoia/Assets/Apple Music.png">
+</p>
+
+- ### Screen Mirroring
+<p align="center">
+    <img src="Sequoia/Assets/Screen Mirroring.png">
+</p>
+
+- ### AirPlay
+<p align="center">
+    <img src="Sequoia/Assets/AirPlay.png">
 </p>
 
 - ### Intel Power Gadget
     - Resource on Idle
     - Some light background apps running
 <p align="center">
-    <img src="Screenshots/Intel Power Gadget.png">
+    <img src="Sequoia/Assets/Intel Power Gadget.png">
 </p>
 
 - ### Hardware Acceleration Check using ffmpeg
 <p align="center">
-    <img src="Screenshots/HW Acceleration.png">
+    <img src="Sequoia/Assets/HW Acceleration.png">
 </p>
 
 - ### Undervolt Using Voltageshift
 <p align="center">
-    <img src="Screenshots/Voltageshift.png">
+    <img src="Sequoia/Assets/Voltageshift.png">
 </p>
 
 - ### Yoga SMC App
 <p align="center">
-    <img src="Screenshots/YogaSMC Pane.png">
+    <img src="Sequoia/Assets/YogaSMC Pane.png">
 </p>
 
 - ### WiFi
 <p align="center">
-    <img src="Screenshots/WiFi.png">
+    <img src="Sequoia/Assets/WiFi.png">
 </p>
 
 - ### Bluetooth
 <p align="center">
-    <img src="Screenshots/Bluetooth.png">
+    <img src="Sequoia/Assets/Bluetooth.png">
 </p>
 
 - ### iMessage
 <p align="center">
-    <img src="Screenshots/iMessage.png">
+    <img src="Sequoia/Assets/iMessage.png">
 </p>
 
 - ### FaceTime
 <p align="center">
-    <img src="Screenshots/Facetime.png">
+    <img src="Sequoia/Assets/Facetime.png">
 </p>
 
 - ### App Store
 <p align="center">
-    <img src="Screenshots/App Store.png">
+    <img src="Sequoia/Assets/App Store.png">
 </p>
 
 ## 📜 License
