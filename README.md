@@ -10,9 +10,13 @@
 </p>
 <p align="center">
 <!-- Ventura -->
-<img src="https://img.shields.io/badge/macOS-Ventura%2013.7.8-yellow?style=for-the-badge&logo=apple" href="https://github.com/felikafelix/Hackintosh-Thinkpad-T480s/tree/master/Ventura">
+<a href="https://github.com/felikafelix/Hackintosh-Thinkpad-T480s/tree/master/Ventura">
+<img src="https://img.shields.io/badge/macOS-Ventura%2013.7.8-yellow?style=for-the-badge&logo=apple">
+</a>
 <!-- Sequoia -->
-<img src="https://img.shields.io/badge/macOS-Sequoia%2015.7-blue?style=for-the-badge&logo=apple" href="https://github.com/felikafelix/Hackintosh-Thinkpad-T480s/tree/master/Sequoia">
+<a href="https://github.com/felikafelix/Hackintosh-Thinkpad-T480s/tree/master/Sequoia">
+<img src="https://img.shields.io/badge/macOS-Sequoia%2015.7-blue?style=for-the-badge&logo=apple">
+</a>
 </p>
 
 <p align="center">OpenCore EFI for Lenovo ThinkPad T480s (i5-8350U, Intel UHD 620)</p>
