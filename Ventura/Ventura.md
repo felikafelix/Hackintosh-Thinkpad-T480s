@@ -1,10 +1,16 @@
 # <div align="center"> Hackintosh-Thinkpad-T480s </div>
 
 <p align="center">
+<a href="https://github.com/felikafelix/Hackintosh-Thinkpad-T480s/tree/master/Ventura">
 <img src="https://img.shields.io/badge/macOS-Ventura%2013.7.8-yellow?style=for-the-badge&logo=apple">
+</a>
+<a href="https://github.com/acidanthera/OpenCorePkg/releases/tag/1.0.5">
 <img src="https://img.shields.io/badge/OpenCore-1.0.5-green?style=for-the-badge&logo=hackthebox">
+</a>
 <img src="https://img.shields.io/badge/Status-Stable-brightgreen?style=for-the-badge">
+<a href="https://github.com/felikafelix/Hackintosh-Thinkpad-T480s/releases">
 <img src="https://img.shields.io/github/downloads/felikafelix/Hackintosh-Thinkpad-T480s/total?style=for-the-badge">
+</a>
 </p>
 
 ## ⚠️ Attention
@@ -17,7 +23,7 @@ The Adjustment i do on my EFI before upgrade
     - Show Picker = True
     - Timeout = 10
 - Disable HiDPI
-- After succesfully upgraded to sequoia, you can change the EFI to my sequoia release, and re-enable any kext & system patch disabled before upgrading.
+- After succesfully upgraded to sequoia, you can change the EFI to my sequoia release, and / or re-enable any kext & system patch disabled before upgrading.
 
 <p align="justify">if you still want to stay on Ventura, maybe consider changing smbios to 16,3. From what i test on my Sequoia, the power and performance management is better.</p>
 

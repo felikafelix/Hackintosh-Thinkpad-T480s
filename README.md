@@ -43,7 +43,7 @@ The Adjustment i do on my EFI before upgrade
     - Show Picker = True
     - Timeout = 10
 - Disable HiDPI
-- After succesfully upgraded to sequoia, you can change the EFI to my sequoia release, and re-enable any kext & system patch disabled before upgrading.
+- After succesfully upgraded to sequoia, you can change the EFI to my sequoia release, and / or re-enable any kext & system patch disabled before upgrading.
 
 <p align="justify">if you still want to stay on Ventura, maybe consider changing smbios to 16,3. From what i test on my Sequoia, the power and performance management is better.</p>
 <br>
