@@ -2,12 +2,17 @@
 
 <p align="center">
 <!-- OpenCore 1.0.5 -->
-<img src="https://img.shields.io/badge/OpenCore-1.0.5-green?style=for-the-badge&logo=hackthebox" href="https://github.com/acidanthera/OpenCorePkg/releases/tag/1.0.5">
+<a href="https://github.com/acidanthera/OpenCorePkg/releases/tag/1.0.5">
+<img src="https://img.shields.io/badge/OpenCore-1.0.5-green?style=for-the-badge&logo=hackthebox">
+</a>
 <!-- Status Stable -->
 <img src="https://img.shields.io/badge/Status-Stable-brightgreen?style=for-the-badge">
 <!-- Downloads -->
-<img src="https://img.shields.io/github/downloads/felikafelix/Hackintosh-Thinkpad-T480s/total?style=for-the-badge" href="https://github.com/felikafelix/Hackintosh-Thinkpad-T480s/releases">
+<a href="https://github.com/felikafelix/Hackintosh-Thinkpad-T480s/releases">
+<img src="https://img.shields.io/github/downloads/felikafelix/Hackintosh-Thinkpad-T480s/total?style=for-the-badge">
+</a>
 </p>
+
 <p align="center">
 <!-- Ventura -->
 <a href="https://github.com/felikafelix/Hackintosh-Thinkpad-T480s/tree/master/Ventura">
