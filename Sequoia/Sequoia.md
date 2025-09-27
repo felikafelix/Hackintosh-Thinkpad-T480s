@@ -120,10 +120,7 @@ Prerequisites:<br>
     <p align="center">
     <img src="Assets/oclp1.png">
     </p>
-    <p align="center">
-    <img src="Assets/oclp2.png">
-    </p>
-    
+
     > If you get any SIP related errors, try resetting NVRAM.
 
     ---

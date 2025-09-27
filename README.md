@@ -43,7 +43,7 @@ The Adjustment i do on my EFI before upgrade
 -  Misc > Boot >
     - Show Picker = True
     - Timeout = 10
-- Disable HiDPI
+- Disable HiDPI / BetterDisplay
 - After succesfully upgraded to sequoia, you can change the EFI to my sequoia release, and / or re-enable any kext & system patch disabled before upgrading.
 
 <p align="justify">if you still want to stay on Ventura, maybe consider changing smbios to 16,3. From what i test on my Sequoia, the power and performance management is better.</p>
@@ -65,7 +65,9 @@ The Adjustment i do on my EFI before upgrade
 5. **Post-Install:** :
     - Install [YogaSMC](https://github.com/zhen-zen/YogaSMC) and setup [Undervolting](#Undervolting)
     - Generate your own [CPUFriendDataProvider](https://github.com/corpnewt/CPUFriendFriend) to adjust your need (prioritize power, balanced power, balanced performance, prioritize performance)
-    - Setup [HiDPI](https://github.com/xzhih/one-key-hidpi) for native scaling
+    - Setup Custom Scaling (Choose 1 from below options)
+        - Using [HiDPI](https://github.com/xzhih/one-key-hidpi) for native scaling
+        - (my preference) Using [BetterDisplay](https://github.com/waydabber/BetterDisplay) for HiDPI + Custom resolution + another customization feature.
     - (Sequoia Only), if want to use airportltlwm on sequoia, patch using oclp method, see sequoia readme
 
 **Need help?** Open an [Issue](../../issues)
@@ -221,10 +223,14 @@ The Adjustment i do on my EFI before upgrade
     - To Get all the Fn keys to work, use the <a href="https://github.com/zhen-zen/YogaSMC">YogaSMC app</a>
     - YogaSMCNC Apps also can help to manage the fan, led light, etc
 
-- ### HiDPI
-    - Download and run the [HiDPI](https://github.com/xzhih/one-key-hidpi) script.
-    - Choose Option `(2) Enable HiDPI (With EDID)` > `(3) MacBook Pro` > `(1) 1920x1080 Display`. or chose another option as you need
-    - Reboot
+- ### Display Scaling / Custom Resolution (Choose 1 from below option)
+    1. #### HiDPI
+        - Download and run the [HiDPI](https://github.com/xzhih/one-key-hidpi) script.
+        - Choose Option `(2) Enable HiDPI (With EDID)` > `(3) MacBook Pro` > `(1) 1920x1080 Display`. or chose another option as you need
+        - Reboot
+    2. #### BetterDisplay
+        - Install [BetterDisplay](https://github.com/waydabber/BetterDisplay)
+        - Customize your display as you want ^^
 
 - ### Other Tools you might need
     - <a href="https://github.com/corpnewt/ProperTree">ProperTree</a>
