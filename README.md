@@ -48,7 +48,7 @@ The Adjustment i do on my EFI before upgrade
     - Show Picker = True
     - Timeout = 10
 - Disable HiDPI / BetterDisplay
-- After succesfully upgraded to sequoia, you can change the EFI to my sequoia release, and / or re-enable any kext & system patch disabled before upgrading.
+- After succesfully upgraded to Tahoe, you can change the EFI to my Tahoe latest release.
 
 <p align="justify">If you still want to stay on Sequoia, maybe consider changing smbios to 16,3. From what i test on my Sequoia, the power and performance management is better.</p>
 <br>
@@ -209,6 +209,7 @@ The Adjustment i do on my EFI before upgrade
     - T480 Stock Panel color accuracy is not good.
     - Maybe issue with the color depth too.
     - There's workaround says need to spoof to skylake platform-id, but that will not work with ventura (only monterey and older)
+    - Tahoe on T480s is a bit laggy than Sequoia, but it's still smooth enough for daily usage. Consider not to upgrade, or disable some elements like transparency, etc to get better performance.
 </details>
 
 
