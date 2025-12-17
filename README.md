@@ -22,6 +22,10 @@
 <a href="https://github.com/felikafelix/Hackintosh-Thinkpad-T480s/tree/master/Sequoia">
 <img src="https://img.shields.io/badge/macOS-Sequoia%2015.7-blue?style=for-the-badge&logo=apple">
 </a>
+<!-- Tahoe -->
+<a href="https://github.com/felikafelix/Hackintosh-Thinkpad-T480s/tree/master/Tahoe">
+<img src="https://img.shields.io/badge/macOS-Tahoe%2026.2-lightblue?style=for-the-badge&logo=apple">
+</a>
 </p>
 
 <p align="center">OpenCore EFI for Lenovo ThinkPad T480s (i5-8350U, Intel UHD 620) with Touchscreen</p>
@@ -30,12 +34,12 @@
 <p align="justify">This EFI is created and tested specially for my Lenovo Thinkpad T480s with Intel UHD 620. The configuration is optimized for smooth user experience, stable enough for daily usage, and hardware acceleration support.</p>
 
 <p align="center">
-<img src="Sequoia/Assets/About This Mac.png">
+<img src="Tahoe/Assets/About This Mac.png">
 </p>
 
 ## ⚠️ Attention
-<p align="justify">I just upgraded my hacks to Sequoia, so v3 will be my last update for Ventura. <br></br>
-In case you want to upgrade from ventura to sequoia, im using the v3 release to upgrade from Ventura to Sequoia using <b>System Settings > General > Software Update</b>.</p>
+<p align="justify">I just upgraded my hacks to Tahoe, so v5 will be my last update for Sequoia. <br></br>
+In case you want to upgrade from Sequoia to Tahoe, i will provide the EFI i used to clean install the Tahoe<b>System Settings > General > Software Update</b>.</p>
 The Adjustment i do on my EFI before upgrade
 
 - Disable voltageshift script and its kext
@@ -46,7 +50,7 @@ The Adjustment i do on my EFI before upgrade
 - Disable HiDPI / BetterDisplay
 - After succesfully upgraded to sequoia, you can change the EFI to my sequoia release, and / or re-enable any kext & system patch disabled before upgrading.
 
-<p align="justify">if you still want to stay on Ventura, maybe consider changing smbios to 16,3. From what i test on my Sequoia, the power and performance management is better.</p>
+<p align="justify">If you still want to stay on Sequoia, maybe consider changing smbios to 16,3. From what i test on my Sequoia, the power and performance management is better.</p>
 <br>
 
 
@@ -58,17 +62,29 @@ The Adjustment i do on my EFI before upgrade
 
 > see [Sequoia Notes](Sequoia/Sequoia.md)
 
+> see [Tahoe Notes](Tahoe/Tahoe.md)
+
 1. **Download:** Get the latest EFI from [Releases](../../releases)
 2. **Generate SMBIOS:** Use [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS) with `MacBookPro16,3`
 3. **Configure BIOS:** Follow settings in [BIOS Settings](#-bios-settings) section
-4. **Install:** Copy EFI to your USB/Drive and boot
-5. **Post-Install:** :
+4. **Install:** 
+    - Copy EFI to your USB Drive and boot
+5. **Install (Tahoe Only):**
+    - For clean install (Tahoe), download the recovery image using macrecover.py.
+    - > python3 ./macrecovery.py -b Mac-CFF7D910A743CAAF -m 00000000000000000 -os latest download
+    - Copy the recovery image to the same place as EFI USB Drive.
+    - Boot into recovery mode and install macOS.
+    - Notes: 
+        - on my case, take around 2 hours to finish the installation and getting to desktop, maybe different in yours, depend on network speed and disk speed.
+        - just be patient, it will take a while to finish the installation.
+
+6. **Post-Install:** :
     - Install [YogaSMC](https://github.com/zhen-zen/YogaSMC) and setup [Undervolting](#Undervolting)
     - Generate your own [CPUFriendDataProvider](https://github.com/corpnewt/CPUFriendFriend) to adjust your need (prioritize power, balanced power, balanced performance, prioritize performance)
     - Setup Custom Scaling (Choose 1 from below options)
         - Using [HiDPI](https://github.com/xzhih/one-key-hidpi) for native scaling
         - (my preference) Using [BetterDisplay](https://github.com/waydabber/BetterDisplay) for HiDPI + Custom resolution + another customization feature.
-    - (Sequoia Only), if want to use airportltlwm on sequoia, patch using oclp method, see sequoia readme
+    - (Sequoia Only), if want to use AirportItlwm on Sequoia, patch using oclp method. See [Sequoia Notes](Sequoia/Sequoia.md)
 
 **Need help?** Open an [Issue](../../issues)
 
@@ -134,7 +150,7 @@ The Adjustment i do on my EFI before upgrade
 - Output HDMI (video & audio)
 - Audio (Internal Speaker, Interlan Mic & Jack Headphone 3.5mm)
 - Internal Microphone
-- WiFi 5GHz & 2.4GHz
+- WiFi 5GHz & 2.4GHz (Ventura and Sequoia using Airportltlwm, Tahoe using Itlwm)
 - Bluetooth 
 - Ethernet
 - Touchscreen (Gesture same as trackpad)
@@ -151,20 +167,20 @@ The Adjustment i do on my EFI before upgrade
     - F5 (Brightness Decrease)
     - F6 (Brightness Increase)
     - F7 (Second Display)
-    - F8 (Toggle WiFi)
+    - F8 (Toggle WiFi) (Ventura and Sequoia only, doesnt work on Tahoe because using Itlwm+Heliport)
     - F9 (Preferences)
     - F10 (Toggle Bluetooth)
     - F11 (Toggle Keyboard)
     - F12 (Toggle Launchpad)
 - Apple Services (iMessage, Facetime, App Store, Find My, Airplay, etc)
 - Apple Music Lossless (Hi-Res Audio)
-- Airdrop
+- Airdrop (Ventura and Sequoia only, Tahoe using Heliport that doesn't support Airdrop)
     - One Way > Send to iPhone Only
-- Continuity Handoff (Browser Acivity, Universal Clipboard, etc)
+- Continuity Handoff (Browser Acivity, Universal Clipboard, etc) (Ventura and Sequoia only, Tahoe using Heliport that doesn't support Continuity Handoff)
 - iPhone Camera (USB Cable)
 - Android USB Tethering
-    - on ventura, add [HoRNDIS](https://github.com/TomHeaven/HoRNDIS/releases) kext
-    - on sequoia, the kext is already included
+    - on Ventura, add [HoRNDIS](https://github.com/TomHeaven/HoRNDIS/releases) kext
+    - on Sequoia and Tahoe, the kext is already included
 
 </details>
 
@@ -173,6 +189,7 @@ The Adjustment i do on my EFI before upgrade
 - Safari DRM & Apple TV+ (Blank & Audio Only, need dGPU or spoof SMBios to iMacPro1,1 / MacPro1,1. Workaround: Use browsers like chrome or firefox which use software-based DRM => widevine)
 - Fingerprint Reader
 - Airdrop Receiver
+- Airdrop & Continuity Handoff (Tahoe using Heliport that doesn't support Airdrop & Continuity Handoff)
 - iPhone Camera (Wireless)
   
 </details>
@@ -244,84 +261,84 @@ The Adjustment i do on my EFI before upgrade
 
 - ### Desktop
 <p align="center">
-    <img src="Sequoia/Assets/Desktop.png">
+    <img src="Tahoe/Assets/Desktop.png">
 </p>
 
 - ### About This Mac
 <p align="center">
-    <img src="Sequoia/Assets/About This Mac.png">
+    <img src="Tahoe/Assets/About This Mac.png">
 </p>
 
 - ### System & Graphic Info (VDA Decoder Fully Supported)
 <p align="center">
-    <img src="Sequoia/Assets/System Graphic Info.png">
+    <img src="Tahoe/Assets/System Graphic Info.png">
 </p>
 
-- ### Display (HiDPI)
+- ### Display (Better Display)
 <p align="center">
-    <img src="Sequoia/Assets/Display.png">
+    <img src="Tahoe/Assets/Display.png">
 </p>
 
 - ### Apple Music Lossless Audio
 <p align="center">
-    <img src="Sequoia/Assets/Apple Music.png">
+    <img src="Tahoe/Assets/Apple Music.png">
 </p>
 
 - ### Screen Mirroring
 <p align="center">
-    <img src="Sequoia/Assets/Screen Mirroring.png">
+    <img src="Tahoe/Assets/Screen Mirroring.png">
 </p>
 
 - ### AirPlay
 <p align="center">
-    <img src="Sequoia/Assets/AirPlay.png">
+    <img src="Tahoe/Assets/AirPlay.png">
 </p>
 
 - ### Intel Power Gadget
-    - Resource on Idle
-    - Some light background apps running
+    - Resource and Temperature
+    - Some background apps running
 <p align="center">
-    <img src="Sequoia/Assets/Intel Power Gadget.png">
+    <img src="Tahoe/Assets/Intel Power Gadget.png">
 </p>
 
 - ### Hardware Acceleration Check using ffmpeg
 <p align="center">
-    <img src="Sequoia/Assets/HW Acceleration.png">
+    <img src="Tahoe/Assets/HW Acceleration.png">
 </p>
 
 - ### Undervolt Using Voltageshift
 <p align="center">
-    <img src="Sequoia/Assets/Voltageshift.png">
+    <img src="Tahoe/Assets/Voltageshift.png">
 </p>
 
 - ### Yoga SMC App
 <p align="center">
-    <img src="Sequoia/Assets/YogaSMC Pane.png">
+    <img src="Tahoe/Assets/YogaSMC Pane.png">
 </p>
 
 - ### WiFi
 <p align="center">
-    <img src="Sequoia/Assets/WiFi.png">
+    <img src="Tahoe/Assets/WiFi.png">
 </p>
 
 - ### Bluetooth
 <p align="center">
-    <img src="Sequoia/Assets/Bluetooth.png">
+    <img src="Tahoe/Assets/Bluetooth.png">
 </p>
 
 - ### iMessage
 <p align="center">
-    <img src="Sequoia/Assets/iMessage.png">
+    <img src="Tahoe/Assets/iMessage.png">
 </p>
 
 - ### FaceTime
 <p align="center">
-    <img src="Sequoia/Assets/Facetime.png">
+    <img src="Tahoe/Assets/Facetime.png">
 </p>
 
 - ### App Store
 <p align="center">
-    <img src="Sequoia/Assets/App Store.png">
+    <img src="Tahoe/Assets/App Store.png">
 </p>
 
 ## 📜 License

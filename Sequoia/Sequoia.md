@@ -8,7 +8,7 @@
 <img src="https://img.shields.io/badge/OpenCore-1.0.5-green?style=for-the-badge&logo=hackthebox">
 </a>
 <img src="https://img.shields.io/badge/Status-Stable-brightgreen?style=for-the-badge">
-<a href="https://github.com/felikafelix/Hackintosh-Thinkpad-T480s/releases">
+<a href="https://github.com/felikafelix/Hackintosh-Thinkpad-T480s/releases/tag/v5">
 <img src="https://img.shields.io/github/downloads/felikafelix/Hackintosh-Thinkpad-T480s/total?style=for-the-badge">
 </a>
 </p>
@@ -19,6 +19,22 @@
 see [README](../README.md)
 
 **Need help?** Open an [Issue](https://github.com/felikafelix/Hackintosh-Thinkpad-T480s/issues)
+
+## ⚠️ Attention
+<p align="justify">I just upgraded my hacks to Tahoe, so v5 will be my last update for Sequoia. <br></br>
+In case you want to upgrade from sequoia to Tahoe, i will provide the EFI i used to clean install the Tahoe<b>System Settings > General > Software Update</b>.</p>
+The Adjustment i do on my EFI before upgrade
+
+- Disable voltageshift script and its kext
+- Cleaning the boot-args, add `-v` and `keepsyms=1`
+-  Misc > Boot >
+    - Show Picker = True
+    - Timeout = 10
+- Disable HiDPI / BetterDisplay
+- After succesfully upgraded to sequoia, you can change the EFI to my sequoia release, and / or re-enable any kext & system patch disabled before upgrading.
+
+<p align="justify">if you still want to stay on Ventura, maybe consider changing smbios to 16,3. From what i test on my Sequoia, the power and performance management is better.</p>
+<br>
 
 ##  📶 Wireless
 
