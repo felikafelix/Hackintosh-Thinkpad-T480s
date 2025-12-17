@@ -3,7 +3,7 @@
 <p align="center">
 <!-- OpenCore 1.0.5 -->
 <a href="https://github.com/acidanthera/OpenCorePkg/releases/tag/1.0.5">
-<img src="https://img.shields.io/badge/OpenCore-1.0.5-green?style=for-the-badge&logo=hackthebox">
+<img src="https://img.shields.io/badge/OpenCore-1.0.6-green?style=for-the-badge&logo=hackthebox">
 </a>
 <!-- Status Stable -->
 <img src="https://img.shields.io/badge/Status-Stable-brightgreen?style=for-the-badge">
@@ -209,7 +209,7 @@ The Adjustment i do on my EFI before upgrade
     - T480 Stock Panel color accuracy is not good.
     - Maybe issue with the color depth too.
     - There's workaround says need to spoof to skylake platform-id, but that will not work with ventura (only monterey and older)
-    - Tahoe on T480s is a bit laggy than Sequoia, but it's still smooth enough for daily usage. Consider not to upgrade, or disable some elements like transparency, etc to get better performance.
+    - Tahoe on T480s is a bit laggy than Sequoia, but it's still smooth enough for daily usage. Consider not to upgrade, or disable some elements like transparency, etc to get better
 </details>
 
 
