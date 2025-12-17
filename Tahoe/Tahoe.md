@@ -13,6 +13,10 @@
 </a>
 </p>
 
+## Notes
+My laptop screen is break, and i replace it with the one that haven't touchscreen. So starting from Tahoe, my EFI will not including the kext for touchscreen.
+If you want to use the touchscreen, you can use the lates Sequoia EFI's kext for touchscreen references.
+
 ## Installation
 1. Download the Tahoe Install EFI from [Tahoe Install EFI](https://github.com/felikafelix/Hackintosh-Thinkpad-T480s/releases/tag/v6.0.1). or you can setup your own EFI using [OpCore-Simplify](https://github.com/lzhoang2801/OpCore-Simplify)
 2. Download the MacOS Tahoe Recovery Image using macrecovery.py and place the recover folder to the USB same as the EFI folder.
