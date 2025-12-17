@@ -15,15 +15,15 @@
 
 <p align="center">
 <!-- Ventura -->
-<a href="https://github.com/felikafelix/Hackintosh-Thinkpad-T480s/tree/master/Ventura/Ventura.md">
+<a href="https://github.com/felikafelix/Hackintosh-Thinkpad-T480s/tree/master/Ventura">
 <img src="https://img.shields.io/badge/macOS-Ventura%2013.7.8-yellow?style=for-the-badge&logo=apple">
 </a>
 <!-- Sequoia -->
-<a href="https://github.com/felikafelix/Hackintosh-Thinkpad-T480s/tree/master/Sequoia/Sequoia.md">
+<a href="https://github.com/felikafelix/Hackintosh-Thinkpad-T480s/tree/master/Sequoia">
 <img src="https://img.shields.io/badge/macOS-Sequoia%2015.7-blue?style=for-the-badge&logo=apple">
 </a>
 <!-- Tahoe -->
-<a href="https://github.com/felikafelix/Hackintosh-Thinkpad-T480s/tree/master/Tahoe/Tahoe.md">
+<a href="https://github.com/felikafelix/Hackintosh-Thinkpad-T480s/tree/master/Tahoe">
 <img src="https://img.shields.io/badge/macOS-Tahoe%2026.2-lightblue?style=for-the-badge&logo=apple">
 </a>
 </p>
