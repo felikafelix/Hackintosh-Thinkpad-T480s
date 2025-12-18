@@ -23,10 +23,33 @@ If you want to use the touchscreen, you can use the lates Sequoia EFI's kext for
 ```python3 ./macrecovery.py -b Mac-CFF7D910A743CAAF -m 00000000000000000 -os latest download```
 3. Installation (on my case) take around 2 hours to finish and get to the desktop. Just be patient.
 4. After installation, switch to [Latest EFI for Tahoe](https://github.com/felikafelix/Hackintosh-Thinkpad-T480s/releases/tag/v7.0.1) and than you can setup the post install, see [Post Installation](../README.md#postinstall).
-5. Don't forget to set your own SMBIOS, see [SMBIOS](../README.md#smbios)
+5. Don't forget to set your own SMBIOS, see [SMBIOS](../README.md#smbios), use MacBookPro16,4
 6. Setup your own CPUFriendDataProvider, see [CPUFriendDataProvider](../README.md#cpufrienddataprovider)
 7. Setup your USB Mapping, see [USB Mapping](../README.md#usb-mapping)
 8. To make the audio works, use [MyKextInstaller](https://github.com/Mirone/MyKextInstaller) to install AppleHDA
+
+## Updates
+1. Since v8, i change my SMBios from MacBookPro16,1 to MacBookPro16,4, because i found that the performance and thermal management is better.
+2. if you using SMBIOS MacBookPro16,1 and want to change to MacBookPro16,4, please disable filevault first for safety.
+3. **My Personal Case**
+    - i can't turn off the filevault, because the encrypting process is stuck.
+    - Using command ```fdesetup status``` it shows that the encrypting process isn't changed.
+    - Using command ```diskutil apfs list``` it shows that the encrypting process is paused.
+    - If you facing the same issue, follow this method
+        - run ```sudo fdesetup list``` to get the uuid of your mac user, it will be something like ```youruser, 12345678-1234-1234-1234-123456789012```.
+        - reboot to recovery mode, you can enter recovery mode by selecting it on opencore picker, or hold commmand/windows + r.
+        - On Disk Utility, select your data disk that locked (usually greyyed out), and mount it. Close the Disk Utility.
+        - On the Menubar, Click on Utilities > Terminal.
+        - Run ```diskutil apfs list```, see there will be a partition that have like ```Encrypted``` or ```Encryption Progress``` something like that. look for the one that has Data disk name, not system disk name.
+        - In my case, the name of Data partition is ```disk3s1```.
+        - for APFS file system, run ```/usr/libexec/apfsd```. For others, run ```/usr/libexec/corestoraged```.
+        - in my case, im using APFS file system, so i run ```/usr/libexec/apfsd```. While the command running, open new terminal window.
+        - In the new terminal window, run ```diskutil apfs list``` (For APFS file system) or ```diskutil cs list``` (for others).
+        - now, run again ```diskutil apfs list```, you would see that the encrypting process is now running. the ```paused``` status is gone. Just let the encrypting process finish.
+        - after the encrypting process finish, you can decrypt / disable filevault by running ```diskutil apfs decryptVolume {yourdiskname} -user {youruseruuid}```
+        - for example ```diskutil apfs decryptVolume disk3s1 -user 12345678-1234-1234-1234-123456789012```.
+        - after the decrypt process finish, you can reboot to normal mode, now the filevault should be disabled, and you can change the SMBIOS to MacBookPro16,4.
+        
 
 ## 📸 Screenshot
 

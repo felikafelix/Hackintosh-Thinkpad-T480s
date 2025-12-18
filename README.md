@@ -56,7 +56,7 @@ In case you want to upgrade from Sequoia to Tahoe, i will provide the EFI i used
 > see [Tahoe Notes](Tahoe/Tahoe.md)
 
 1. **Download:** Get the latest EFI from [Releases](../../releases)
-2. **Generate SMBIOS:** Use [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS) with `MacBookPro16,1`, (for Tahoe, use 16,1)
+2. **Generate SMBIOS:** Use [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS) with `MacBookPro16,3`, (for Tahoe, use 16,4)
 3. **Configure BIOS:** Follow settings in [BIOS Settings](#-bios-settings) section
 4. **Install:** 
     - Copy EFI to your USB Drive and boot
