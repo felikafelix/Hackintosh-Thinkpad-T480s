@@ -209,7 +209,6 @@ The Adjustment i do on my EFI before upgrade
     - T480 Stock Panel color accuracy is not good.
     - Maybe issue with the color depth too.
     - There's workaround says need to spoof to skylake platform-id, but that will not work with ventura (only monterey and older)
-    - Tahoe on T480s is a bit laggy than Sequoia, but it's still smooth enough for daily usage. Consider not to upgrade, or disable some elements like transparency, etc to get better
 </details>
 
 
