@@ -26,6 +26,7 @@ If you want to use the touchscreen, you can use the lates Sequoia EFI's kext for
 5. Don't forget to set your own SMBIOS, see [SMBIOS](../README.md#smbios)
 6. Setup your own CPUFriendDataProvider, see [CPUFriendDataProvider](../README.md#cpufrienddataprovider)
 7. Setup your USB Mapping, see [USB Mapping](../README.md#usb-mapping)
+8. To make the audio works, use [MyKextInstaller](https://github.com/Mirone/MyKextInstaller) to install AppleHDA
 
 ## 📸 Screenshot
 
