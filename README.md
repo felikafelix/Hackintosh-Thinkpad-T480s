@@ -39,16 +39,7 @@
 
 ## ⚠️ Attention
 <p align="justify">I just upgraded my hacks to Tahoe, so v5 will be my last update for Sequoia. <br></br>
-In case you want to upgrade from Sequoia to Tahoe, i will provide the EFI i used to clean install the Tahoe<b>System Settings > General > Software Update</b>.</p>
-The Adjustment i do on my EFI before upgrade
-
-- Disable voltageshift script and its kext
-- Cleaning the boot-args, add `-v` and `keepsyms=1`
--  Misc > Boot >
-    - Show Picker = True
-    - Timeout = 10
-- Disable HiDPI / BetterDisplay
-- After succesfully upgraded to Tahoe, you can change the EFI to my Tahoe latest release.
+In case you want to upgrade from Sequoia to Tahoe, i will provide the EFI i used to clean install the Tahoe.
 
 <p align="justify">If you still want to stay on Sequoia, maybe consider changing smbios to 16,3. From what i test on my Sequoia, the power and performance management is better.</p>
 <br>
