@@ -2,7 +2,7 @@
 
 <p align="center">
 <a href="https://github.com/felikafelix/Hackintosh-Thinkpad-T480s/tree/master/Tahoe">
-<img src="https://img.shields.io/badge/macOS-Tahoe%2016.0-lightblue?style=for-the-badge&logo=apple">
+<img src="https://img.shields.io/badge/macOS-Tahoe%2026.0-lightblue?style=for-the-badge&logo=apple">
 </a>
 <a href="https://github.com/acidanthera/OpenCorePkg/releases/tag/1.0.5">
 <img src="https://img.shields.io/badge/OpenCore-1.0.6-green?style=for-the-badge&logo=hackthebox">
