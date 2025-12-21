@@ -169,6 +169,7 @@ In case you want to upgrade from Sequoia to Tahoe, i will provide the EFI i used
     - One Way > Send to iPhone Only
 - Continuity Handoff (Browser Acivity, Universal Clipboard, etc) (Ventura and Sequoia only, Tahoe using Heliport that doesn't support Continuity Handoff)
 - iPhone Camera (USB Cable)
+- iCloud Private Relay
 - Android USB Tethering
     - on Ventura, add [HoRNDIS](https://github.com/TomHeaven/HoRNDIS/releases) kext
     - on Sequoia and Tahoe, the kext is already included
