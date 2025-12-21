@@ -55,6 +55,11 @@ In case you want to upgrade from Sequoia to Tahoe, i will provide the EFI i used
 
 > see [Tahoe Notes](Tahoe/Tahoe.md)
 
+> For installing Airportitlwm Kext on Sequoia, see [Sequoia Notes](Sequoia/Sequoia.md)
+
+> For patching itlwm.kext + Heliport to be able to use Aidrop, Continuity Handoff, Private Relay, etc.. see [Patch itlwm + Heliport](Tahoe/Patch_itlwm_Heliport.md)
+
+
 1. **Download:** Get the latest EFI from [Releases](../../releases)
 2. **Generate SMBIOS:** Use [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS) with `MacBookPro16,3`, (for Tahoe, use 16,4)
 3. **Configure BIOS:** Follow settings in [BIOS Settings](#-bios-settings) section
@@ -240,6 +245,8 @@ In case you want to upgrade from Sequoia to Tahoe, i will provide the EFI i used
     2. #### BetterDisplay
         - Install [BetterDisplay](https://github.com/waydabber/BetterDisplay)
         - Customize your display as you want ^^
+- ### (Optional) Enabling Airdrop, Continuity Handoff, etc for Itlwm + Heliport Users
+    For enabling Airdrop, and other wireless functions like Continuity Handoff, Location Services, etc (Airportitlwm like), see [Patch itlwm + Heliport](Tahoe/Patch_itlwm_Heliport.md)
 
 - ### Other Tools you might need
     - <a href="https://github.com/corpnewt/ProperTree">ProperTree</a>
