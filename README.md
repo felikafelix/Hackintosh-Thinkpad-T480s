@@ -170,9 +170,9 @@ In case you want to upgrade from Sequoia to Tahoe, i will provide the EFI i used
     - F12 (Toggle Launchpad)
 - Apple Services (iMessage, Facetime, App Store, Find My, Airplay, etc)
 - Apple Music Lossless (Hi-Res Audio)
-- Airdrop (Ventura and Sequoia only, Tahoe using Heliport that doesn't support Airdrop)
+- Airdrop
     - One Way > Send to iPhone Only
-- Continuity Handoff (Browser Acivity, Universal Clipboard, etc) (Ventura and Sequoia only, Tahoe using Heliport that doesn't support Continuity Handoff)
+- Continuity Handoff (Browser Acivity, Universal Clipboard, etc)
 - iPhone Camera (USB Cable)
 - iCloud Private Relay
 - Android USB Tethering
@@ -186,7 +186,6 @@ In case you want to upgrade from Sequoia to Tahoe, i will provide the EFI i used
 - Safari DRM & Apple TV+ (Blank & Audio Only, need dGPU or spoof SMBios to iMacPro1,1 / MacPro1,1. Workaround: Use browsers like chrome or firefox which use software-based DRM => widevine)
 - Fingerprint Reader
 - Airdrop Receiver
-- Airdrop & Continuity Handoff (Tahoe using Heliport that doesn't support Airdrop & Continuity Handoff)
 - iPhone Camera (Wireless)
   
 </details>
@@ -195,6 +194,7 @@ In case you want to upgrade from Sequoia to Tahoe, i will provide the EFI i used
   
 - Thunderbolt 3 (doesn't have TB3 devices to test)
 - Card Reader (doesn't have memory card to test)
+- WWAN (doesn't have WWAN Card installed)
   
 </details>
 
@@ -206,6 +206,8 @@ In case you want to upgrade from Sequoia to Tahoe, i will provide the EFI i used
     - T480 Stock Panel color accuracy is not good.
     - Maybe issue with the color depth too.
     - There's workaround says need to spoof to skylake platform-id, but that will not work with ventura (only monterey and older)
+- Audio on Tahoe
+    Built in speaker is working great, but the jack headphone seems to have issue with audio after wake from sleep. Temporary solution is just restart the device.
 </details>
 
 
