@@ -128,7 +128,7 @@ This is just temporary patch, based on macOS race condition, to be able to use A
     ```
     After that, save and exit.
 
-5. Before creating the cron job, make sure to test the script first.
+5. Before creating the automation job, make sure to test the script first.
     Open Terminal and run this command:
     ```
     sudo su
@@ -136,19 +136,54 @@ This is just temporary patch, based on macOS race condition, to be able to use A
     ```
     If everything is working fine (like there is a notification says ```Private Relay Active```), you can proceed to the next step.
 
-6. Create Cron Jobs to run the script every time the system start.
-    Open Terminal and run this command:
+6. For creating the automation job (start script on system boot, and after wake from sleep), need to install slepwatcher
     ```
-    sudo su
-    crontab -e
+    brew install sleepwatcher
     ```
-    Add this line to the end of the file:
-    ```
-    @reboot /usr/local/bin/enable_privaterelay.sh
-    ```
-    Save and exit.
 
-7. Reboot your system. The script will run automatically and you should be able to use Private Relay, Airdrop, Continuity Handoff, etc..
+7. Create launch daemons root user
+    ```
+    sudo nano /Library/LaunchDaemons/de.bernhard-baehr.sleepwatcher.plist
+    ```
+    Edit the file with this content:
+    ```
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+    <dict>
+    <key>Label</key>
+    <string>de.bernhard-baehr.sleepwatcher</string>
+    
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>-c</string>
+        <string>/usr/local/bin/enable_privaterelay.sh; /usr/local/sbin/sleepwatcher -V -w /usr/local/bin/enable_privaterelay.sh</string>
+    </array>
+    
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+    </dict>
+    </plist>
+    ```
+    After that, save and exit.
+
+    Logic explanation:
+    - when macOS booting, it will load this plist ```RunAtLoad: True```
+    - ```/usr/local/bin/enable_privaterelay.sh``` will execute the cloudflare login item toggle.
+    - ```;``` after first command done, continue to next command.
+    - ```/usr/local/sbin/sleepwatcher ...``` run sleepwatcher daemon that will wait on wake from sleep event.
+
+8. Start the service
+    ```
+    sudo launchctl bootstrap system /Library/LaunchDaemons/de.bernhard-baehr.sleepwatcher.plist
+    ```
+
+
+
+7. Reboot your system. The script will run automatically after boot and wake from sleep event,and you should be able to use Private Relay, Airdrop, Continuity Handoff, etc..
 
 ---
 
