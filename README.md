@@ -81,6 +81,7 @@ In case you want to upgrade from Sequoia to Tahoe, i will provide the EFI i used
         - Using [HiDPI](https://github.com/xzhih/one-key-hidpi) for native scaling
         - (my preference) Using [BetterDisplay](https://github.com/waydabber/BetterDisplay) for HiDPI + Custom resolution + another customization feature.
     - (Sequoia Only), if want to use AirportItlwm on Sequoia, patch using oclp method. See [Sequoia Notes](Sequoia/Sequoia.md)
+    - (Optional) Enabling Airdrop, Continuity Handoff, etc for Itlwm + Heliport Users
 
 **Need help?** Open an [Issue](../../issues)
 
