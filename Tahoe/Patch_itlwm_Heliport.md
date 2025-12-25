@@ -1,6 +1,6 @@
 # Patch itlwm.kext + Heliport for ability to use Airdrop, Private Relay, Continuity Handoff, etc..
 
-This is just temporary patch, based on macOS race condition, to be able to use Aidrop, Continuity Handoff, Private Relay, etc.. i'm not techy guy that learn much deep about hackintoshing, so i hope someone will create a better patch tool for this. Like just install and click patch, no need to do anything else.
+This is just temporary patch, based on macOS race condition, to be able to use Aidrop, Continuity Handoff, Private Relay, etc.., because after the private relay is enabled, other functions like airdrop is usable too. i'm not techy guy that learn much deep about hackintoshing, so i hope someone will create a better patch tool for this. Like just install and click patch, no need to do anything else.
 
 # For you guys that want to reproduce this race condition, here is the steps i do:
 1. On your hackintosh, make sure to use itlwm.kext + Heliport
@@ -128,7 +128,26 @@ This is just temporary patch, based on macOS race condition, to be able to use A
     ```
     After that, save and exit.
 
-5. Before creating the automation job, make sure to test the script first.
+---
+## Option 1: Using Shortcuts (Click to Enable)
+enable the
+1. Open ```Shortcuts``` app
+2. Create new shortcut
+3. Add ```Run Shell Script``` action
+4. Add ```/usr/local/bin/enable_privaterelay.sh``` to the ```Run Shell Script``` action
+5. Check the ```Run as Administrator``` option
+6. (Optional Cosmetic) you can customize the title and the icon of the shortcut
+<p align="center">
+    <img src="Assets/shortcut.png">
+</p>
+
+7. now on the created shortcut, right click and ```Add to Dock```
+8. Everytime you runt it, it will ask for password, because it needs to run as root / administrator.
+
+
+## Option 2: Using Automation Job (Auto on After Boot, Restart, and Wake from sleep)
+
+1. Before creating the automation job, make sure to test the script first.
     Open Terminal and run this command:
     ```
     sudo su
@@ -136,12 +155,12 @@ This is just temporary patch, based on macOS race condition, to be able to use A
     ```
     If everything is working fine (like there is a notification says ```Private Relay Active```), you can proceed to the next step.
 
-6. For creating the automation job (start script on system boot, and after wake from sleep), need to install slepwatcher
+2. For creating the automation job (start script on system boot, and after wake from sleep), need to install slepwatcher
     ```
     brew install sleepwatcher
     ```
 
-7. Create launch daemons root user
+3. Create launch daemons root user
     ```
     sudo nano /Library/LaunchDaemons/de.bernhard-baehr.sleepwatcher.plist
     ```
@@ -176,16 +195,20 @@ This is just temporary patch, based on macOS race condition, to be able to use A
     - ```;``` after first command done, continue to next command.
     - ```/usr/local/sbin/sleepwatcher ...``` run sleepwatcher daemon that will wait on wake from sleep event.
 
-8. Start the service
+4. Start the service
     ```
     sudo launchctl bootstrap system /Library/LaunchDaemons/de.bernhard-baehr.sleepwatcher.plist
     ```
 
 
 
-7. Reboot your system. The script will run automatically after boot and wake from sleep event,and you should be able to use Private Relay, Airdrop, Continuity Handoff, etc..
+5. Reboot your system. The script will run automatically after boot and wake from sleep event,and you should be able to use Private Relay, Airdrop, Continuity Handoff, etc..
+
+
 
 ---
+
+
 
 # Usage Testing
 1. Private Relay
