@@ -219,7 +219,7 @@ In case you want to upgrade from Sequoia to Tahoe, i will provide the EFI i used
     - The most stable offset i set is -135 (CPU), -140 (GPU), -40 (CPU Cache), you can set your own by running " voltageshift offset \<cpu\> \<gpu\> \<cpu cache\>
     - Example : 
     ``
-    voltageshift offset -135 -140 -40 
+    voltageshift offset -135 -140 -40 && voltageshift powwer 22 44
     ``
     - Remember to set the offset carefully
     - After setting up the undervolting, always do the stress test to make sure there's no bug, screen flickering, or other issues. if no issue occurs, you can try to apply more aggresive offset.
