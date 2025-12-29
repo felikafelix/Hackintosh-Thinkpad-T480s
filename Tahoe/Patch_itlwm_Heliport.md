@@ -2,13 +2,16 @@
 
 This is just temporary patch, based on macOS race condition, to be able to use Aidrop, Continuity Handoff, Private Relay, etc.., because after the private relay is enabled, other functions like airdrop is usable too. i'm not techy guy that learn much deep about hackintoshing, so i hope someone will create a better patch tool for this. Like just install and click patch, no need to do anything else.
 
-# For you guys that want to reproduce this race condition, here is the steps i do:
+> Update: just tested using my apple account with expired icloud+ subscription (doesn't have access to private relay), and the trick still works too!!, the only difference if not have icloud+ trick is private relay will not connected. but the Airdrop, Continuity etc still works.
+
+# For techy user that want to reproduce this race condition, here is the steps i do:
 1. On your hackintosh, make sure to use itlwm.kext + Heliport
 2. run ```log stream --predicate 'subsystem contains "com.apple.networkserviceproxy" OR process == "NEHelper"' --info --style compact``` to monitor and watch the logs
 3. Make sure private relay is active (the status would be Unavailable)
-4. (Optional) Enable location services, handoff continuity, etc.
-5. Install [Cloudflare WARP for MacOS](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/warp/download-warp/)
-6. After installation, on ```System Settings > General > Login Items & Extensions``` you will see 2 new items.
+   notes: anyone that doesn't have icloud subscription, you can activate private relay using command from terminal, if from the GUI is not available. the status would be Unavailable too.
+5. (Optional) Enable location services, handoff continuity, etc.
+6. Install [Cloudflare WARP for MacOS](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/warp/download-warp/)
+7. After installation, on ```System Settings > General > Login Items & Extensions``` you will see 2 new items.
 
     - For ```Cloudflare Inc.```, make sure its enabled.
     - For ```Cloudflare WARP.app```, you can disabled it if you want.
@@ -29,7 +32,7 @@ This is just temporary patch, based on macOS race condition, to be able to use A
 ---
 
 
-# (For Common Users) Step by Step to temporary patch itlwm.kext + Heliport to use Private Relay, Airdrop, Continuity Handoff, etc..
+# For Common Users, Step by Step itlwm.kext + Heliport trick to make Private Relay, Airdrop, Continuity Handoff, etc.. enabled Persistent
 
 1. Download and Install [Cloudflare WARP for MacOS](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/warp/download-warp/)
 2. Go to ```System Settings```, and set Private Relay to ```On``` it will shows that private relay is unavailable, 
@@ -130,7 +133,7 @@ This is just temporary patch, based on macOS race condition, to be able to use A
 
 ---
 ## Option 1: Using Shortcuts (Click to Enable)
-enable the
+
 1. Open ```Shortcuts``` app
 2. Create new shortcut
 3. Add ```Run Shell Script``` action
@@ -208,7 +211,10 @@ enable the
 
 ---
 
+Notes:
+> Im using those 2 options at the same time, for automating after boot/reboot, and wake from sleep. sometimes i got the private relay not available again, i just trigger to activate it again using the shortcut app.
 
+---
 
 # Usage Testing
 1. Private Relay
