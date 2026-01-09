@@ -53,7 +53,7 @@ Prerequisites:<br>
 * [ProperTree](https://github.com/corpnewt/ProperTree)
 * [IO80211FamilyLegacy.kext](https://github.com/dortania/OpenCore-Legacy-Patcher/blob/main/payloads/Kexts/Wifi/IO80211FamilyLegacy-v1.0.0.zip)
 * [IOSkywalkFamily.kext](https://github.com/dortania/OpenCore-Legacy-Patcher/blob/main/payloads/Kexts/Wifi/IOSkywalkFamily-v1.2.0.zip)
-* Disabling SIP
+* AMFI
     * Sequoia users use [AMFIPass.kext](https://github.com/dortania/OpenCore-Legacy-Patcher/blob/main/payloads/Kexts/Acidanthera/AMFIPass-v1.4.1-RELEASE.zip)
     * Tahoe users use `amfi=0x80` in boot-args
 * [Airportltlwm.kext](https://github.com/openintelwireless/itlwm/releases) --> **Get the latest stable ventura kext!!!**
