@@ -18,7 +18,7 @@
 ### V9 EFI for Tahoe
 finally i have replaced my current display with the one that have touchscreen, so V9 will start adding touchscreen support again. 
 
-Also i have added some change to thunderbolt controller, at least it now detected on IORegistryExplorer. I still can't test it, because i don't have the thunderbolt device. so it will helpful if you can test it and let me know if it works.
+Also i have added some change to thunderbolt controller, thanks to [@aerhazu](https://github.com/aerhazu) at least it now detected on IORegistryExplorer. I still can't test it, because i don't have the thunderbolt device. so it will helpful if you can test it and let me know if it works.
 
 <p align="center">
     <img src="./Assets/ThunderboltIOREG.png">
@@ -28,6 +28,8 @@ What did i test on thunderbolt port and works:
 - Flashdisk using USB to Type C
 - External SSD using USB to Type C
 - Connect iPhone using Type C to Lightning (sync iphone and personal hotspot)
+
+Btw, my Thunderbolt Path is Located at `RP05`, if you have difference path, you can edit the path on TB3 SSDT and ACPI PATCH to match your own.
 
 ### V6 EFI for Tahoe
 My laptop screen is break, and i replace it with the one that haven't touchscreen. So starting from Tahoe, my EFI will not including the kext for touchscreen.
