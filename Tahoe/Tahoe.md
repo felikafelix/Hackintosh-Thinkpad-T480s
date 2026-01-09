@@ -18,7 +18,7 @@
 ### V9 EFI for Tahoe
 finally i have replaced my current display with the one that have touchscreen, so V9 will start adding touchscreen support again. 
 
-Also i have added some change to thunderbolt controller, thanks to [@aerhazu](https://github.com/aerhazu) at least it now detected on IORegistryExplorer. I still can't test it, because i don't have the thunderbolt device. so it will helpful if you can test it and let me know if it works.
+Also i have added some change to thunderbolt controller, thanks to [@aerhazu](https://github.com/aerhazu). now, at least it now detected on IORegistryExplorer. I still can't test it, because i don't have the thunderbolt device. so it will helpful if you guys can test it and let me know if it works.
 
 <p align="center">
     <img src="./Assets/ThunderboltIOREG.png">
