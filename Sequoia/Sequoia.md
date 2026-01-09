@@ -38,7 +38,7 @@ The Adjustment i do on my EFI before upgrade
 
 ##  📶 Wireless
 
-on Sequoia, there's 2 option for WiFi to works
+on Sequoia and Tahoe, there's 2 option for WiFi to works
 
 - Using Airportltlwm.kext + OCLP patch
 - Using itlwm.kext + heliport app
@@ -47,11 +47,15 @@ A. Using airportltlwm.kext + OCLP patch
 
 Prerequisites:<br>
 * [Hackintool](https://github.com/benbaker76/Hackintool/releases)
-* [OpenCore Legacy Patcher](https://github.com/dortania/OpenCore-Legacy-Patcher/releases)
+* OpenCore Legacy Patcher
+    * [Official OpenCore Legacy Patcher](https://github.com/dortania/OpenCore-Legacy-Patcher/releases) => Sequoia Users
+    * [Modded OpenCore Legacy Patcher](https://github.com/laobamac/OCLP-Mod) => Tahoe Users
 * [ProperTree](https://github.com/corpnewt/ProperTree)
 * [IO80211FamilyLegacy.kext](https://github.com/dortania/OpenCore-Legacy-Patcher/blob/main/payloads/Kexts/Wifi/IO80211FamilyLegacy-v1.0.0.zip)
 * [IOSkywalkFamily.kext](https://github.com/dortania/OpenCore-Legacy-Patcher/blob/main/payloads/Kexts/Wifi/IOSkywalkFamily-v1.2.0.zip)
-* [AMFIPass.kext](https://github.com/dortania/OpenCore-Legacy-Patcher/blob/main/payloads/Kexts/Acidanthera/AMFIPass-v1.4.1-RELEASE.zip)
+* Disabling SIP
+    * Sequoia users use [AMFIPass.kext](https://github.com/dortania/OpenCore-Legacy-Patcher/blob/main/payloads/Kexts/Acidanthera/AMFIPass-v1.4.1-RELEASE.zip)
+    * Tahoe users use `amfi=0x80` in boot-args
 * [Airportltlwm.kext](https://github.com/openintelwireless/itlwm/releases) --> **Get the latest stable ventura kext!!!**
 
     ### Step 1 : Spoofing
@@ -93,11 +97,13 @@ Prerequisites:<br>
     |1|IOSkywalkFamily.kext|
     |2|IO80211FamilyLegacy.kext|
     |3|IO80211FamilyLegacykext/Contents/Plugins/AirPortBrcmNIC.kext|
-    |4|AMFIPass.kext|
+    |4|AMFIPass.kext (for Sequoia users only)|
     |5|Airportltlwm.kext|
     
 
-    > Make sure you don't have `amfi_get_out_of_my_way` or `amfi=0x80` in your boot-args.
+    > For Sequoia Users, Make sure you don't have `amfi_get_out_of_my_way` or `amfi=0x80` in your boot-args.
+
+    > For Tahoe Users, Make sure you don't have `AMFIPASS.kext` enabled.
 
     > Make sure you don't have itlwm.kext enabled. if you do, disable it or delete it completely.
 
@@ -179,6 +185,7 @@ B. Using itlwm.kext with heliport app
 3. set `csr-active-config` on `NVRAM > Add > 7C436110-AB2A-4BBB-A880-FE41995C9F82` to `00000000`
 4. Download and Install [HeliPort.dmg](https://openintelwireless.github.io/HeliPort/Installation.html)<br>
 5. Run and add HeliPort.app to `Open at Login`
+6. (Optional) Setup script to enable AirDrop, Continuity, Handoff, etc. see [Patching itlwm + Heliport](../Tahoe/Patch_itlwm_Heliport.md)
 
 
 ## 📸 Screenshot

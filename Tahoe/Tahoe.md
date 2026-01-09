@@ -14,19 +14,37 @@
 </p>
 
 ## Notes
+
+### V9 EFI for Tahoe
+finally i have replaced my current display with the one that have touchscreen, so V9 will start adding touchscreen support again. 
+
+Also i have added some change to thunderbolt controller, at least it now detected on IORegistryExplorer. I still can't test it, because i don't have the thunderbolt device. so it will helpful if you can test it and let me know if it works.
+
+<p align="center">
+    <img src="./Assets/ThunderboltIOREG.png">
+</p>
+
+What did i test on thunderbolt port:
+- Flashdisk using USB to Type C
+- External SSD using USB to Type C
+- Connect iPhone using Type C to Lightning
+
+
+### V6 EFI for Tahoe
 My laptop screen is break, and i replace it with the one that haven't touchscreen. So starting from Tahoe, my EFI will not including the kext for touchscreen.
 If you want to use the touchscreen, you can use the lates Sequoia EFI's kext for touchscreen references.
 
 ## Installation
-1. Download the Tahoe Install EFI from [Tahoe Install EFI](https://github.com/felikafelix/Hackintosh-Thinkpad-T480s/releases/tag/v6.0.1). or you can setup your own EFI using [OpCore-Simplify](https://github.com/lzhoang2801/OpCore-Simplify)
+
+1. Download the Tahoe Install EFI from [Tahoe Install EFI](https://github.com/felikafelix/Hackintosh-Thinkpad-T480s/releases/tag/v6.0.1). or you can setup your own EFI using [OpCore-Simplify](https://github.com/lzhoang2801/OpCore-Simplify).
 2. Download the MacOS Tahoe Recovery Image using macrecovery.py and place the recover folder to the USB same as the EFI folder.
-```python3 ./macrecovery.py -b Mac-CFF7D910A743CAAF -m 00000000000000000 -os latest download```
+```python3 ./macrecovery.py -b Mac-CFF7D910A743CAAF -m 00000000000000000 -os latest download```.    
 3. Installation (on my case) take around 2 hours to finish and get to the desktop. Just be patient.
 4. After installation, switch to [Latest EFI for Tahoe](https://github.com/felikafelix/Hackintosh-Thinkpad-T480s/releases/tag/v7.0.1) and than you can setup the post install, see [Post Installation](../README.md#postinstall).
-5. Don't forget to set your own SMBIOS, see [SMBIOS](../README.md#smbios), use MacBookPro16,4
-6. Setup your own CPUFriendDataProvider, see [CPUFriendDataProvider](../README.md#cpufrienddataprovider)
-7. Setup your USB Mapping, see [USB Mapping](../README.md#usb-mapping)
-8. To make the audio works, use [MyKextInstaller](https://github.com/Mirone/MyKextInstaller) to install AppleHDA
+5. Don't forget to set your own SMBIOS, see [SMBIOS](../README.md#smbios), use MacBookPro16,4.
+6. Setup your own CPUFriendDataProvider, see [CPUFriendDataProvider](../README.md#cpufrienddataprovider).
+7. Setup your USB Mapping, see [USB Mapping](../README.md#usb-mapping).
+8. To make the audio works, use [MyKextInstaller](https://github.com/Mirone/MyKextInstaller) to install AppleHDA.
 
 ## Updates
 1. Since v8, i change my SMBios from MacBookPro16,1 to MacBookPro16,4, because i found that the performance and thermal management is better.

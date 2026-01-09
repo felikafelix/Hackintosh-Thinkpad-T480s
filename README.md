@@ -55,7 +55,7 @@ In case you want to upgrade from Sequoia to Tahoe, i will provide the EFI i used
 
 > see [Tahoe Notes](Tahoe/Tahoe.md)
 
-> For installing Airportitlwm Kext on Sequoia, see [Sequoia Notes](Sequoia/Sequoia.md)
+> For using Airportitlwm Kext on Sequoia and Tahoe, see [Wirless Section on Sequoia Notes](Sequoia/Sequoia.md)
 
 > For patching itlwm.kext + Heliport to be able to use Aidrop, Continuity Handoff, Private Relay, etc.. see [Patch itlwm + Heliport](Tahoe/Patch_itlwm_Heliport.md)
 
@@ -80,7 +80,7 @@ In case you want to upgrade from Sequoia to Tahoe, i will provide the EFI i used
     - Setup Custom Scaling (Choose 1 from below options)
         - Using [HiDPI](https://github.com/xzhih/one-key-hidpi) for native scaling
         - (my preference) Using [BetterDisplay](https://github.com/waydabber/BetterDisplay) for HiDPI + Custom resolution + another customization feature.
-    - (Sequoia Only), if want to use AirportItlwm on Sequoia, patch using oclp method. See [Sequoia Notes](Sequoia/Sequoia.md)
+    - if want to use AirportItlwm on Sequoia and Tahoe, patch using oclp method. See [Sequoia Notes](Sequoia/Sequoia.md)
     - (Optional) Enabling Airdrop, Continuity Handoff, etc for Itlwm + Heliport Users
 
 **Need help?** Open an [Issue](../../issues)
@@ -164,7 +164,7 @@ In case you want to upgrade from Sequoia to Tahoe, i will provide the EFI i used
     - F5 (Brightness Decrease)
     - F6 (Brightness Increase)
     - F7 (Second Display)
-    - F8 (Toggle WiFi) (Ventura and Sequoia only, doesnt work on Tahoe because using Itlwm+Heliport)
+    - F8 (Toggle WiFi) (Doesn't work if using itlwm + Heliport)
     - F9 (Preferences)
     - F10 (Toggle Bluetooth)
     - F11 (Toggle Keyboard)
@@ -207,8 +207,6 @@ In case you want to upgrade from Sequoia to Tahoe, i will provide the EFI i used
     - T480 Stock Panel color accuracy is not good.
     - Maybe issue with the color depth too.
     - There's workaround says need to spoof to skylake platform-id, but that will not work with ventura (only monterey and older)
-- Audio on Tahoe
-    Built in speaker is working great, but the jack headphone seems to have issue with audio after wake from sleep. Temporary solution is just restart the device.
 </details>
 
 
@@ -226,7 +224,88 @@ In case you want to upgrade from Sequoia to Tahoe, i will provide the EFI i used
     - For stresstest, i just open browser as much as i can, also play 4k video
     - Also use benchmark tools to test the offset stability
     - If the laptop crash / freeze, just force restart. the value will revert to default (0 0 0)
-    - After make sure the offset is stable, just setup voltageshift with the launchagent to apply the offset every boot / wake from sleep
+    - After make sure the offset is stable, just setup voltageshift with the launchd or launchagent to apply the offset every boot / wake from sleep
+    - For undervolting, i use the following settings:
+        - CPU: -135
+        - GPU: -140
+        - CPU Cache: -40
+        - PL1: 22W
+        - PL2: 44W
+    -  I use launchagent to setup this, step to do:
+        - Create plist file
+            ```
+            touch ~/Library/LaunchAgents/{com.user.voltageshift.plist,com.user.voltageshift2.plist}
+            ```
+        - Edit the `com.user.voltageshift.plist` and fill with this:
+            ```
+            <?xml version="1.0" encoding="UTF-8"?>
+            <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+            <plist version="1.0">
+            <dict>
+                <key>Label</key>
+                <string>com.user.voltageshift</string>
+                <key>ProgramArguments</key>
+                <array>
+                    <string>/usr/local/bin/voltageshift</string>
+                    <string>offset</string>
+                    <string>-135</string>
+                    <string>-140</string>
+                    <string>-40</string>
+                    <string>0</string>
+                    <string>0</string>
+                    <string>0</string>
+                </array>
+                <key>RunAtLoad</key>
+                <true/>
+                <key>KeepAlive</key>
+                <dict>
+                    <key>PathState</key>
+                    <dict>
+                        <key>/private/var/run/syslog</key>
+                        <true/>
+                    </dict>
+                </dict>
+            </dict>
+            </plist>
+            ```
+        - Edit the `com.user.voltageshift2.plist` and fill with this:
+            ```
+            <?xml version="1.0" encoding="UTF-8"?>
+            <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+            <plist version="1.0">
+            <dict>
+                <key>Label</key>
+                <string>com.user.voltageshift2</string>
+                <key>ProgramArguments</key>
+                <array>
+                    <string>/usr/local/bin/voltageshift</string>
+                    <string>power</string>
+                    <string>22</string>
+                    <string>44</string>
+                </array>
+                <key>RunAtLoad</key>
+                <true/>
+                <key>KeepAlive</key>
+                <dict>
+                    <key>PathState</key>
+                    <dict>
+                        <key>/private/var/run/syslog</key>
+                        <true/>
+                    </dict>
+                </dict>
+            </dict>
+            </plist>
+            ```
+        - Load with launchctl:
+            ```
+            launchctl load ~/Library/LaunchAgents/com.user.voltageshift.plist
+            launchctl load ~/Library/LaunchAgents/com.user.voltageshift2.plist
+            ```
+        - To unload, use:
+            ```
+            launchctl unload ~/Library/LaunchAgents/com.user.voltageshift.plist
+            launchctl unload ~/Library/LaunchAgents/com.user.voltageshift2.plist
+            ``` 
 
 - ### Generate SMBios
     - Download and use <a href="https://github.com/corpnewt/GenSMBIOS">GenSMBios</a>
@@ -248,8 +327,20 @@ In case you want to upgrade from Sequoia to Tahoe, i will provide the EFI i used
     2. #### BetterDisplay
         - Install [BetterDisplay](https://github.com/waydabber/BetterDisplay)
         - Customize your display as you want ^^
-- ### (Optional) Enabling Airdrop, Continuity Handoff, etc for Itlwm + Heliport Users
+- ### (itlwm + Heliport Users) Enabling Airdrop, Continuity Handoff, etc
     For enabling Airdrop, and other wireless functions like Continuity Handoff, Location Services, etc (Airportitlwm like), see [Patch itlwm + Heliport](Tahoe/Patch_itlwm_Heliport.md)
+
+- ### (Airportitlwm Users) Installing Airportitlwm Kext on Sequoia or Tahoe
+    For enabling Airdrop, and other wireless functions like Continuity Handoff, Location Services, etc (Airportitlwm like), see [Patching Airportitlwm on Sequoia and Tahoe](Sequoia/Sequoia.md)
+
+- ### (macOS Tahoe Users), Enabling Audio
+    - Make sure applealc.kext is in the EFI/OC/Kexts folder.
+    - Make sure the config.plist has the correct layout-id.
+    - Make sure you have AMFIpass.kext, or set `amfi=0x80` in the boot-args.
+    - Download and install `MyKextInstaller` and the AppleHDA.kext from the [MyKextInstaller Repo Latest Release](https://github.com/Mirone/MyKextInstaller/releases).
+    - From the MyKextInstaller, select `Download KDKs` and install it.
+    - After installing the KDKs, open the MyKextInstaller again, select `Install Kexts` and install AppleHDA.kext.
+    - Reboot.
 
 - ### Other Tools you might need
     - <a href="https://github.com/corpnewt/ProperTree">ProperTree</a>
@@ -258,6 +349,15 @@ In case you want to upgrade from Sequoia to Tahoe, i will provide the EFI i used
     - <a href="https://github.com/acidanthera/MaciASL">MaciASL</a>
     - <a href="https://www.python.org/downloads/macos/">Python3</a>
     - <a href="https://brew.sh/">Homebrew</a>
+    - <a href="https://github.com/waydabber/BetterDisplay">BetterDisplay</a>
+    - <a href="https://github.com/xzhih/one-key-hidpi">HiDPI</a>
+    - <a href="https://github.com/waydabber/MyKextInstaller">MyKextInstaller</a>
+    - <a href="https://github.com/waydabber/GenSMBIOS">GenSMBIOS</a>
+    - <a href="https://github.com/waydabber/YogaSMC">YogaSMC</a>
+    - <a href="https://github.com/waydabber/YogaSMCNC">YogaSMCNC</a>
+    - <a href="https://github.com/waydabber/IntelPowerGadget">IntelPowerGadget</a>
+
+
 
 ## 📸 Screenshot
 
