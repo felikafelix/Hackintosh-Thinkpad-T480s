@@ -24,11 +24,10 @@ Also i have added some change to thunderbolt controller, at least it now detecte
     <img src="./Assets/ThunderboltIOREG.png">
 </p>
 
-What did i test on thunderbolt port:
+What did i test on thunderbolt port and works:
 - Flashdisk using USB to Type C
 - External SSD using USB to Type C
-- Connect iPhone using Type C to Lightning
-
+- Connect iPhone using Type C to Lightning (sync iphone and personal hotspot)
 
 ### V6 EFI for Tahoe
 My laptop screen is break, and i replace it with the one that haven't touchscreen. So starting from Tahoe, my EFI will not including the kext for touchscreen.
