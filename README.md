@@ -310,7 +310,6 @@ In case you want to upgrade from Sequoia to Tahoe, i will provide the EFI i used
 - ### Generate SMBios
     - Download and use <a href="https://github.com/corpnewt/GenSMBIOS">GenSMBios</a>
     - Choose Option `3. Generate SMBios`
-    - For model, you can use `MacBookPro15,2` or `MacBookPro14,1`
     - Notes the output of GenSMBios (Serial, Board Serial / MLB, SmUUID, etc)
     - Edit the config.plist using <a href="https://github.com/corpnewt/ProperTree">ProperTree</a>
     - Paste the Serial, MLB, SmUUID, etc, to the `PlatformInfo > Generic`
