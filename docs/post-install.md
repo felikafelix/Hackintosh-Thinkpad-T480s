@@ -5,16 +5,16 @@ This guide covers all essential post-installation steps for your Hackintosh Thin
 ---
 
 ## Table of Contents
-- [Undervolting](#-undervolting)
-- [Display Scaling](#-display-scaling)
-- [YogaSMC Setup](#-yogasmc-setup)
-- [Audio Setup (Tahoe)](#-audio-setup-tahoe-only)
-- [USB Mapping](#-usb-mapping)
-- [CPUFriendDataProvider](#-cpufrienddataprovider)
-- [Wireless Setup](#-wireless-setup)
-  - [Option A: AirportItlwm + OCLP Patch](#option-a-airportitlwm--oclp-patch)
-  - [Option B: itlwm + Heliport](#option-b-itlwm--heliport)
-- [Airdrop & Continuity Fix](#-airdrop--continuity-fix-itlwm-users)
+- Undervolting
+- Display Scaling
+- YogaSMC Setup
+- Audio Setup (Tahoe)
+- USB Mapping]
+- CPUFriendDataProvider
+- Wireless Setup
+  - Option A: AirportItlwm + OCLP Patch
+  - Option B: itlwm + Heliport
+- Airdrop & Continuity Fix
 
 ---
 
@@ -326,9 +326,18 @@ This patch enables Airdrop, Continuity Handoff, Private Relay, and more for itlw
 > Works even without iCloud+ subscription (Private Relay shows "Unavailable" but other features work)
 
 ### Prerequisites
-- itlwm.kext + Heliport configured
-- Private Relay turned ON (even if unavailable)
-- [Cloudflare WARP for macOS](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/warp/download-warp/)
+- itlwm.kext + Heliport configured.
+- Private Relay turned ON (even if the status is `Unavailable`).
+- [Cloudflare WARP for macOS](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/warp/download-warp/).
+- No other third party VPN or Tunnel app connected or running, as Private Relay will fail with `software in this mac is incompatible with private relay` error.
+  - You still can use third party vpn, without private relay, to re-active private relay, just disconnect third party vpn app, and re-do the workaround toggle.
+- Private Relay needs iCloud+ Subscription, if you don't have icloud subs, the workround still works for Airdrop, Continuity, etc.., without private relay. (Tested yesterday while my subscription is expired).
+
+### Works with this workround
+- AirDrop send only (expected. even on my sequoia and ventura using airportitlwm it does the same).
+- Continuity Handoff.
+- Universal Clipboard (one-way expected, same as my sequoia and ventura while using airportitlwm).
+- Location Services (Low Accuracy).
 
 ### Setup
 
@@ -461,12 +470,6 @@ sudo launchctl bootstrap system /Library/LaunchDaemons/de.bernhard-baehr.sleepwa
 ```
 
 4. Reboot - script runs automatically on boot and wake from sleep
-
-5. Works with this workround
-   - AirDrop send only (expected. even on my sequoia and ventura using airportitlwm it does the same).
-   - Continuity Handoff.
-   - Universal Clipboard (one-way expected, same as my sequoia and ventura while using airportitlwm).
-   - Location Services (Low Accuracy).
 
 ### Demo
 
