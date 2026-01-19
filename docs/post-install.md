@@ -462,6 +462,12 @@ sudo launchctl bootstrap system /Library/LaunchDaemons/de.bernhard-baehr.sleepwa
 
 4. Reboot - script runs automatically on boot and wake from sleep
 
+5. Works with this workround
+   - AirDrop send only (expected. even on my sequoia and ventura using airportitlwm it does the same).
+   - Continuity Handoff.
+   - Universal Clipboard (one-way expected, same as my sequoia and ventura while using airportitlwm).
+   - Location Services (Low Accuracy).
+
 ### Demo
 
 <details>
