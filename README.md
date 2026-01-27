@@ -302,7 +302,7 @@ See **[Post-Install Guide](docs/post-install.md)** for:
 
 **Contributors:**
 - [@aerhazu](https://github.com/aerhazu) - Thunderbolt improvements
-- [randomappleboi](https://github.com/randomappleboi) - OCLP Tahoe WiFi research
+- [randomappleboi](https://github.com/randomappleboi) - OCLP WiFi research
 
 **Projects & Tools:**
 | Project | Maintainer |
