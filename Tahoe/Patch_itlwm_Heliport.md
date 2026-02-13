@@ -6,7 +6,7 @@ This documentation has been relocated to a new location.
 
 ## 📶 WiFi Patching Guide
 
-Please visit the new page:
+Tested on Tahoe 26.2, Please visit the new page:
 
 👉 **[Post-Install Guide - Wireless Setup](../docs/post-install.md#-wireless-setup)**
 

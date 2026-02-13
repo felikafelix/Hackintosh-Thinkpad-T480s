@@ -13,7 +13,7 @@ This guide covers all essential post-installation steps for your Hackintosh Thin
 - CPUFriendDataProvider
 - Wireless Setup
   - Option A: AirportItlwm + OCLP Patch
-  - Option B: itlwm + Heliport
+  - Option B: itlwm + Heliport (Tested on Tahoe 26.2)
 - Airdrop & Continuity Fix
 
 ---
@@ -309,6 +309,10 @@ If still not working, try resetting NVRAM multiple times.
 ### Option B: itlwm + Heliport
 
 > Simpler setup but requires Heliport app for WiFi connection
+
+> Tested on Tahoe 26.2
+
+> I've upgraded my system to 26.3, and this method airdop doesn't work again, so you can use OCLP method instead
 
 1. Disable all AirportItlwm-related kexts
 2. Disable **Allow IOSkywalk Downgrade** in `Kernel > Block`
