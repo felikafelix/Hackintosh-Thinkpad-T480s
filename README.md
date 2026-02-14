@@ -18,7 +18,7 @@
 <img src="https://img.shields.io/badge/macOS-Sequoia%2015.7-6e54c4?style=for-the-badge&logo=apple">
 </a>
 <a href="https://github.com/felikafelix/Hackintosh-Thinkpad-T480s/tree/master">
-<img src="https://img.shields.io/badge/macOS-Tahoe%2026.2-4fb6c7?style=for-the-badge&logo=apple">
+<img src="https://img.shields.io/badge/macOS-Tahoe%2026.3-4fb6c7?style=for-the-badge&logo=apple">
 </a>
 </p>
 
@@ -302,7 +302,6 @@ See **[Post-Install Guide](docs/post-install.md)** for:
 
 **Contributors:**
 - [@aerhazu](https://github.com/aerhazu) - Thunderbolt improvements
-- [randomappleboi](https://github.com/randomappleboi) - OCLP WiFi research
 
 **Projects & Tools:**
 | Project | Maintainer |

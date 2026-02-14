@@ -173,12 +173,18 @@ For full ThinkPad Fn key support:
 
 ## 🔊 Audio Setup (Tahoe Only)
 
-1. Ensure `AppleALC.kext` is in EFI with correct `layout-id`
-2. Ensure `AMFIPass.kext` is enabled OR add `amfi=0x80` to boot-args
-3. Download [MyKextInstaller](https://github.com/Mirone/MyKextInstaller/releases)
-4. In MyKextInstaller: **Download KDKs** → Install
-5. In MyKextInstaller: **Install Kexts** → Install `AppleHDA.kext`
-6. Reboot
+- Ensure `AppleALC.kext` is in EFI with correct `layout-id`
+### Option A: Using MyKextInstaller
+1. Ensure `AMFIPass.kext` is enabled OR add `amfi=0x80` to boot-args
+2. Download [MyKextInstaller](https://github.com/Mirone/MyKextInstaller/releases)
+3. In MyKextInstaller: **Download KDKs** → Install
+4. In MyKextInstaller: **Install Kexts** → Install `AppleHDA.kext`
+5. Reboot
+
+### Option B: Using OCLP-MOD
+1. Download [OCLP-MOD](https://github.com/laobamac/OCLP-Mod/releases)
+2. In OCLP-MOD, you would see patch available for audio along with modern wireless or intel wireless, install the patches
+3. Reboot
 
 ---
 
@@ -204,6 +210,7 @@ Generate a custom power profile:
 
 ---
 
+
 ## 📶 Wireless Setup
 
 On Sequoia and Tahoe, choose one option:
@@ -215,13 +222,17 @@ On Sequoia and Tahoe, choose one option:
 #### Prerequisites
 - [Hackintool](https://github.com/benbaker76/Hackintool/releases)
 - OpenCore Legacy Patcher: [Official](https://github.com/dortania/OpenCore-Legacy-Patcher/releases) (Sequoia) or [Modded](https://github.com/laobamac/OCLP-Mod) (Tahoe)
-- [ProperTree](https://github.com/corpnewt/ProperTree)
+- [ProperTree](https://github.com/corpnewt/ProperTree) or other config.plist editor.
 - [IO80211FamilyLegacy.kext](https://github.com/dortania/OpenCore-Legacy-Patcher/blob/main/payloads/Kexts/Wifi/IO80211FamilyLegacy-v1.0.0.zip)
 - [IOSkywalkFamily.kext](https://github.com/dortania/OpenCore-Legacy-Patcher/blob/main/payloads/Kexts/Wifi/IOSkywalkFamily-v1.2.0.zip)
-- [AMFIPass.kext](https://github.com/dortania/OpenCore-Legacy-Patcher/blob/main/payloads/Kexts/Acidanthera/AMFIPass-v1.4.1-RELEASE.zip) (Sequoia) or `amfi=0x80` boot-arg (Tahoe)
+- [AMFIPass.kext](https://github.com/dortania/OpenCore-Legacy-Patcher/blob/main/payloads/Kexts/Acidanthera/AMFIPass-v1.4.1-RELEASE.zip)
 - [AirportItlwm.kext](https://github.com/openintelwireless/itlwm/releases) - **Get Ventura version!**
 
-#### Step 1: Spoofing
+#### Step 1: Setting UP Config.plist
+
+> Spoofing is required for Sequoia that using official OCLP.
+
+> for Sequoia and Tahoe that using modded version of OCLP, skip the spoofing step. because in modded version of OCLP, you would see patch available for intel wireless card.
 
 1. Open Hackintool → PCIe section
 2. Find Intel Wireless Card, right-click → **Copy Device Path**
@@ -230,7 +241,7 @@ On Sequoia and Tahoe, choose one option:
 
 3. Open `config.plist` with ProperTree
 4. Navigate to `DeviceProperties > Add`
-5. Add new dictionary with your device path:
+5. Add new dictionary with your device path, this will spoof the wireless card: (Official OCLP Users need this step, **Modded OCLP users skip this step!!**)
 
 | Key | Type | Value |
 |-----|------|-------|
@@ -255,7 +266,7 @@ On Sequoia and Tahoe, choose one option:
 | 1 | IOSkywalkFamily.kext |
 | 2 | IO80211FamilyLegacy.kext |
 | 3 | IO80211FamilyLegacy.kext/Contents/Plugins/AirPortBrcmNIC.kext |
-| 4 | AMFIPass.kext (Sequoia only) |
+| 4 | AMFIPass.kext |
 | 5 | AirportItlwm.kext |
 
 <p align="center"><img src="../assets/guides/airport3.png" width="600"></p>
@@ -268,12 +279,14 @@ On Sequoia and Tahoe, choose one option:
 
 <p align="center"><img src="../assets/guides/airport5.png" width="600"></p>
 
-9. **Reboot**
+9. Modded OCLP users, add `-amfipassbeta` to boot-args.
+
+10. **Reboot**
 
 #### Step 2: OCLP Patching
 
 1. Open OpenCore Legacy Patcher
-2. Select **Post-Install Root Patch**
+2. Select **Post-Install Root Patch**, you would see patches available for modern wireless (official oclp) or intel wireless (modded oclp).
 3. Click **Start Root Patching**
 4. After completion, reboot
 
@@ -281,7 +294,7 @@ On Sequoia and Tahoe, choose one option:
 
 > If SIP errors occur, try resetting NVRAM
 
-#### Step 3: Disable Spoof
+#### Step 3: Disable Spoof (Official OCLP, Modded OCLP skip this step)
 
 1. Open `config.plist`
 2. In `DeviceProperties > Add`, add `#` before your device path
@@ -327,7 +340,11 @@ If still not working, try resetting NVRAM multiple times.
 
 This patch enables Airdrop, Continuity Handoff, Private Relay, and more for itlwm + Heliport users.
 
-> Works even without iCloud+ subscription (Private Relay shows "Unavailable" but other features work)
+> Works even without iCloud+ subscription (Private Relay shows "Unavailable" but other features work).
+
+> Tested on Tahoe 26.2.
+
+> I've upgraded my system to 26.3, and this method airdop doesn't work again, so you can use OCLP method instead.
 
 ### Prerequisites
 - itlwm.kext + Heliport configured.
